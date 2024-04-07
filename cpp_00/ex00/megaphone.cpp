@@ -6,13 +6,11 @@
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 21:31:02 by folim             #+#    #+#             */
-/*   Updated: 2024/04/07 23:00:11 by folim            ###   ########.fr       */
+/*   Updated: 2024/04/07 23:22:56 by folim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
-#include <algorithm>
 
 void siren()
 {
