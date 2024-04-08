@@ -6,7 +6,7 @@
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 19:15:06 by folim             #+#    #+#             */
-/*   Updated: 2024/04/08 19:40:14 by folim            ###   ########.fr       */
+/*   Updated: 2024/04/09 00:26:11 by folim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,16 @@ class Contact{
 		std::string nickname;
 		std::string phonenumber;
 		std::string darkestsecret;
-	
+		
+
 	public:
 		Contact(const std::string& first, const std::string& last,
 				const std::string& nick, const std::string& phone,
 				const std::string& secret)
-					: firstname(first)
-}
+					: firstname(first), lastname(last), nickname(nick), phonenumber(phone), darkestsecret(secret){}
 
+};
+		void	printall(Contact& myContact);
 
 
 #endif

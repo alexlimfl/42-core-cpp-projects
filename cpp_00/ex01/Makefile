@@ -6,7 +6,7 @@
 #    By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/07 21:22:33 by folim             #+#    #+#              #
-#    Updated: 2024/04/08 18:15:43 by folim            ###   ########.fr        #
+#    Updated: 2024/04/09 00:05:44 by folim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME:= megaphone
 COMPILE:= c++
 CPPFLAGS:= -Wall -Wextra -Werror -g3 -fsanitize=address -std=c++98
 
-SRC_FILES:= megaphone.cpp
+SRC_FILES:= main.cpp Contact.cpp
 DIR_SRC:= src
 SRCS := $(addprefix $(DIR_SRC)/, $(SRC_FILES))
 
