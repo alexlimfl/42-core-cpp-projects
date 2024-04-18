@@ -12,7 +12,7 @@
 
 NAME:= megaphone
 COMPILE:= c++
-CPPFLAGS:= -Wall -Wextra -Werror -g3 -fsanitize=address -std=c++98
+CPPFLAGS:= -Wall -Wextra -Werror #-g3 -fsanitize=address -std=c++98
 
 SRC_FILES:= megaphone.cpp
 DIR_SRC:= src
@@ -29,7 +29,7 @@ $(NAME): $(OBJS)
 	$(COMPILE) $(OBJS) $(CPPFLAGS) -o $(NAME)
 
 $(DIR_OBJ)/%.o: $(DIR_SRC)/%.cpp | $(DIR_OBJ)
-	$(COMPILE) $(CPPFLAGS) -c $< -o $@ $
+	$(COMPILE) $(CPPFLAGS) -c $< -o $@
 
 $(DIR_OBJ):
 	mkdir -p $(DIR_OBJ)
