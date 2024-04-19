@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/08 19:00:06 by folim             #+#    #+#             */
-/*   Updated: 2024/04/08 19:22:37 by folim            ###   ########.fr       */
+/*   Created: 2024/04/18 15:22:11 by folim             #+#    #+#             */
+/*   Updated: 2024/04/18 15:22:12 by folim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
 #include "Contact.hpp"
 
 class PhoneBook{
-	public:
-		PhoneBook(void);
-	
-	
-}
+    private:
+        Contact    contacts[8];
+
+    public:
+        void    add_contact(void);
+        // void    print_contact(void);
+        // void    search_contact(void);
+        void    welcome_prompt(void);
+};
 
 #endif

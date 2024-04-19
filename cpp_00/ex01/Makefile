@@ -10,11 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME:= megaphone
+NAME:= PhoneBook
 COMPILE:= c++
 CPPFLAGS:= -Wall -Wextra -Werror -g3 -fsanitize=address -std=c++98
 
-SRC_FILES:= main.cpp Contact.cpp
+SRC_FILES:= main.cpp Contact.cpp PhoneBook.cpp
 DIR_SRC:= src
 SRCS := $(addprefix $(DIR_SRC)/, $(SRC_FILES))
 
@@ -29,7 +29,7 @@ $(NAME): $(OBJS)
 	$(COMPILE) $(OBJS) $(CPPFLAGS) -o $(NAME)
 
 $(DIR_OBJ)/%.o: $(DIR_SRC)/%.cpp | $(DIR_OBJ)
-	$(COMPILE) $(CPPFLAGS) -c $< -o $@ $
+	$(COMPILE) $(CPPFLAGS) -c $< -o $@
 
 $(DIR_OBJ):
 	mkdir -p $(DIR_OBJ)

@@ -11,13 +11,27 @@
 /* ************************************************************************** */
 
 #include "../include/Contact.hpp"
+#include "../include/PhoneBook.hpp"
+
+
 
 int main() {
-    // Creating a Contact object
-    Contact myContact("John", "Doe", "JD", "123", "gay");
 
-    // Printing the details of the contact
-    printall(myContact);
+    //get the user input
+    PhoneBook master;
+
+    master.welcome_prompt();
+    do{
+        std::string input = "";
+        cin >> input;
+        if (input == "ADD")
+            master.add_contact();
+        // else if (input == "SEARCH")
+        //     //search contacts
+        // else if (input == "EXIT")
+        //     //exits
+    }while(1);
+    
 
     return 0;
 }

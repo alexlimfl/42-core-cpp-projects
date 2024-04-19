@@ -14,24 +14,24 @@
 # define CONTACT_H
 
 #include <iostream>
+#include <string>
+
+using namespace std;
 
 class Contact{
-	private:
-		std::string firstname;
-		std::string lastname;
-		std::string nickname;
-		std::string phonenumber;
-		std::string darkestsecret;
-		
+    private:
+        string	firstname, lastname, nickname, phonenumber, darkestsecret;
+		int		index;
 
-	public:
-		Contact(const std::string& first, const std::string& last,
-				const std::string& nick, const std::string& phone,
-				const std::string& secret)
-					: firstname(first), lastname(last), nickname(nick), phonenumber(phone), darkestsecret(secret){}
-
+    public:
+		int set_firstname(string str);
+		int set_lastname(string str);
+		int set_nickname(string str);
+		int set_phonenumber(string str);
+		int set_darkestsecret(string str);
+		void	init(void);
+		void	set_index(int nb);
+		string	get_input(string prompt);
 };
-		void	printall(Contact& myContact);
-
 
 #endif
