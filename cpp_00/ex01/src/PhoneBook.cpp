@@ -29,18 +29,18 @@ void    PhoneBook::exit_phonebook(void){
 
 void    PhoneBook::add_contact(void){
     static int i;
-    int max = 3;
 
-    contacts[i % max].init();
-    contacts[i % max].set_index(i % max);
-    cout << "      Contact Is Saved at No. " << i % max << " !"<< endl;
+    contacts[i % MAX_SIZE].init();
+    contacts[i % MAX_SIZE].set_index(i % MAX_SIZE);
+    cout << "      Contact Is Saved at No." << i % MAX_SIZE << "!"<< endl;
     i++;
 }
 
 void    PhoneBook::search_contact(void){
-    int index = 0;
 
-    contacts[0].view();
+    cout << "      ------------- PHONBOOK CONTACTS -------------" << endl;
+    for(int i = 0; i < 4; i++)
+        contacts[i].view();
 
     // cout << "      Enter Contact Index: ";
     // getline(cin, index);

@@ -54,6 +54,10 @@ void Contact::init(void){
 }
 
 void Contact::print_align(string input){
+    if (input.length() > 10){
+        cout << input.substr(0, 9) + ".";
+        return ;
+    }
     int fill = 10;
     for (int spacing = 10 - input.length(); spacing > 0 ; spacing--)
         cout << "s";
@@ -64,8 +68,12 @@ void Contact::print_align(string input){
 }
 
 void Contact::view(void){
-    cout << "      ------------- PHONBOOK CONTACTS -------------" << endl;
+
+    if(firstname.empty())
+        return ;
     cout << "      |";
+    // print_align(std::wstring(index));
+    // cout << "|";
     print_align(firstname);
     cout << "|";
     print_align(lastname);

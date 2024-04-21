@@ -15,14 +15,14 @@
 
 #include "Contact.hpp"
 
+const int MAX_SIZE = 3;
+
 class PhoneBook{
     private:
-        Contact    contacts[8];
+        Contact    contacts[MAX_SIZE];
 
     public:
         void    add_contact(void);
-        // void    print_contact(void);
-        // void    search_contact(void);
         void    welcome_prompt(void);
         void    exit_phonebook(void);
         void    search_contact(void);

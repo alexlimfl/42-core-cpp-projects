@@ -24,7 +24,6 @@ int main() {
     do{
         std::string input = "";
         cout << "   Please enter a command: ";
-        // cin >> input;
         getline(cin, input);
         if (input == "ADD")
             master.add_contact();
