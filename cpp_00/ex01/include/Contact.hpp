@@ -24,14 +24,11 @@ class Contact{
 		int		index;
 
     public:
-		int set_firstname(string str);
-		int set_lastname(string str);
-		int set_nickname(string str);
-		int set_phonenumber(string str);
-		int set_darkestsecret(string str);
 		void	init(void);
 		void	set_index(int nb);
 		string	get_input(string prompt);
+		void	view(void);
+		void	print_align(string input);
 };
 
 #endif

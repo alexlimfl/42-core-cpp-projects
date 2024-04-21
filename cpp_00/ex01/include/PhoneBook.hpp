@@ -24,6 +24,8 @@ class PhoneBook{
         // void    print_contact(void);
         // void    search_contact(void);
         void    welcome_prompt(void);
+        void    exit_phonebook(void);
+        void    search_contact(void);
 };
 
 #endif

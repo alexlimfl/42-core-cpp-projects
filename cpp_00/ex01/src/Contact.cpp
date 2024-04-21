@@ -14,62 +14,29 @@
 #include <cctype>
 #include <string>
 #include <iostream>
+#include <limits>
 
 // ◦ The contact fields are: first name, last name, nickname, phone number, and
 //  darkest secret. A saved contact can’t have empty fields.
 
 using namespace std;
 
-int Contact::set_firstname(string str){
-    if (str.empty())
-        return (0);
-    firstname = str;
-    return (1);
-}
-
-int Contact::set_lastname(string str){
-    if (str.empty())
-        return (0);
-    lastname = str;
-    return (1);
-}
-
-int Contact::set_nickname(string str){
-    if (str.empty())
-        return (0);
-    nickname = str;
-    return (1);
-}
-
-int Contact::set_phonenumber(string str){
-    if (str.empty())
-        return (0);
-    phonenumber = str;
-    return (1);
-}
-
-int Contact::set_darkestsecret(string str){
-    if (str.empty())
-        return (0);
-    darkestsecret = str;
-    return (1);
-}
-
 void Contact::set_index(int nb){
     index = nb;
 }
 
 string Contact::get_input(string prompt){
-    string  input = "";
+    string  input;
     bool    valid = false;
-    int     i = 0;
+    int i = 0;
+
     do {
-        cout << prompt << flush;
+        // if (i > 0)
+            cout << prompt;
         getline(cin, input);
-        // cout << "here" << input << "$" << endl;
         if (input.empty()){
-            cin.clear();
-            cout << "Invalid input, please retry!" << endl;
+            // if (i > 0)
+                cout << "         Invalid input, please retry!" << endl;
         }
         else
             valid = true;
@@ -79,9 +46,30 @@ string Contact::get_input(string prompt){
 }
 
 void Contact::init(void){
-    firstname = get_input("PLease enter your first name: ");
-    lastname = get_input("Please enter your last name: ");
-    nickname = get_input("Please enter your nickname: ");
-    phonenumber = get_input("Please enter your phone number: ");
-    darkestsecret = get_input("Please enter your darkest secret: ");
+    firstname = get_input("      PLease enter your first name: ");
+    lastname = get_input("      Please enter your last name: ");
+    nickname = get_input("      Please enter your nickname: ");
+    phonenumber = get_input("      Please enter your phone number: ");
+    darkestsecret = get_input("      Please enter your darkest secret: ");
+}
+
+void Contact::print_align(string input){
+    int fill = 10;
+    for (int spacing = 10 - input.length(); spacing > 0 ; spacing--)
+        cout << "s";
+    if (input.length() < 10)
+        fill = 10 - (10 - input.length()); // 10 - spacing
+    for (int i = 0; i < fill && input[i]; i++)
+        cout << input[i];
+}
+
+void Contact::view(void){
+    cout << "      ------------- PHONBOOK CONTACTS -------------" << endl;
+    cout << "      |";
+    print_align(firstname);
+    cout << "|";
+    print_align(lastname);
+    cout << "|";
+    print_align(nickname);
+    cout << "|" << endl;
 }

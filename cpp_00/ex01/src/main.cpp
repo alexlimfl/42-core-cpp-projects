@@ -23,15 +23,17 @@ int main() {
     master.welcome_prompt();
     do{
         std::string input = "";
-        cin >> input;
+        cout << "   Please enter a command: ";
+        // cin >> input;
+        getline(cin, input);
         if (input == "ADD")
             master.add_contact();
-        // else if (input == "SEARCH")
-        //     //search contacts
-        // else if (input == "EXIT")
-        //     //exits
+        else if (input == "SEARCH")
+            master.search_contact();
+        else if (input == "EXIT")
+            master.exit_phonebook();
+        else
+            cout << "      Invalid Command!" << endl;
     }while(1);
-    
-
     return 0;
 }

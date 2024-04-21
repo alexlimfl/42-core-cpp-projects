@@ -12,13 +12,7 @@
 
 #include "../include/PhoneBook.hpp"
 #include "../include/Contact.hpp"
-
-// void    PhoneBook::add_contact(void){
-//     static int  i;
-//     contacts[i % 8].init();
-//     contacts[i % 8].set_index(i % 8);
-//     i++;
-// }
+#include <cstdlib>
 
 void    PhoneBook::welcome_prompt(void){
     cout << "   Welcome to PhoneBook" << endl;
@@ -26,10 +20,29 @@ void    PhoneBook::welcome_prompt(void){
     cout << "       ADD: save a new contact" << endl;
     cout << "       SEARCH: display a specific contact" << endl;
     cout << "       EXIT: quit program" << endl;
-    cout << "   Please enter a command: ";
+}
+
+void    PhoneBook::exit_phonebook(void){
+    cout << "   Thank you for your service!" << endl;
+    exit(0);
 }
 
 void    PhoneBook::add_contact(void){
-    contacts[0].init();
+    static int i;
+    int max = 3;
+
+    contacts[i % max].init();
+    contacts[i % max].set_index(i % max);
+    cout << "      Contact Is Saved at No. " << i % max << " !"<< endl;
+    i++;
+}
+
+void    PhoneBook::search_contact(void){
+    int index = 0;
+
+    contacts[0].view();
+
+    // cout << "      Enter Contact Index: ";
+    // getline(cin, index);
 
 }
