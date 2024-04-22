@@ -13,22 +13,36 @@
 #ifndef CONTACT_H
 # define CONTACT_H
 
-#include <iostream>
+#include <cstdlib>
+#include <sstream>
+#include <cctype>
 #include <string>
+#include <iostream>
+#include <limits>
+// #include "PhoneBook.hpp"
 
-using namespace std;
+// using namespace std;
 
 class Contact{
     private:
-        string	firstname, lastname, nickname, phonenumber, darkestsecret;
+		std::string firstname, lastname, nickname, phonenumber, darkestsecret;
+        // std::string	firstname;
+		// std::string lastname;
+		// std::string nickname;
+		// std::string phonenumber;
+		// std::string darkestsecret;
 		int		index;
 
     public:
-		void	init(void);
-		void	set_index(int nb);
-		string	get_input(string prompt);
-		void	view(void);
-		void	print_align(string input);
+		void		init(void);
+		void		set_index(int nb);
+		std::string	get_input(std::string prompt);
+		void		view(void);
+		void		print_align(std::string input);
+		std::string	get_firstname(void);
+		void		view_all(void);
+		void		init_data(void);
+		void		eof_received(void);
 };
 
 #endif

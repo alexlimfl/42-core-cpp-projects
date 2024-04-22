@@ -10,18 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef PHONEBOOK_H
+# define PHONEBOOK_H
 
 #include "Contact.hpp"
 
-const int MAX_SIZE = 3;
+const int MAX_SIZE = 8;
 
 class PhoneBook{
     private:
         Contact    contacts[MAX_SIZE];
 
     public:
+        // void    init_empty_contact(void);
         void    add_contact(void);
         void    welcome_prompt(void);
         void    exit_phonebook(void);

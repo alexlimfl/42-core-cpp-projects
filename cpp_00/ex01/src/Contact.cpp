@@ -11,33 +11,32 @@
 /* ************************************************************************** */
 
 #include "../include/Contact.hpp"
-#include <cctype>
-#include <string>
-#include <iostream>
-#include <limits>
+#include "../include/PhoneBook.hpp"
 
 // ◦ The contact fields are: first name, last name, nickname, phone number, and
 //  darkest secret. A saved contact can’t have empty fields.
-
-using namespace std;
 
 void Contact::set_index(int nb){
     index = nb;
 }
 
-string Contact::get_input(string prompt){
-    string  input;
+std::string Contact::get_firstname(void){
+    return firstname;
+}
+
+std::string Contact::get_input(std::string prompt){
+    std::string  input;
     bool    valid = false;
     int i = 0;
 
     do {
-        // if (i > 0)
-            cout << prompt;
-        getline(cin, input);
-        if (input.empty()){
-            // if (i > 0)
-                cout << "         Invalid input, please retry!" << endl;
+        std::cout << prompt;
+        std::getline(std::cin, input);
+        if (input.empty() && std::cin.eof()) {
+            eof_received();
         }
+        if (input.empty())
+                std::cout << "         Invalid input, please retry!" << std::endl;
         else
             valid = true;
         i++;
@@ -53,31 +52,55 @@ void Contact::init(void){
     darkestsecret = get_input("      Please enter your darkest secret: ");
 }
 
-void Contact::print_align(string input){
+void Contact::print_align(std::string input){
     if (input.length() > 10){
-        cout << input.substr(0, 9) + ".";
+        std::cout << input.substr(0, 9) + ".";
         return ;
     }
     int fill = 10;
     for (int spacing = 10 - input.length(); spacing > 0 ; spacing--)
-        cout << "s";
+        std::cout << " ";
     if (input.length() < 10)
         fill = 10 - (10 - input.length()); // 10 - spacing
     for (int i = 0; i < fill && input[i]; i++)
-        cout << input[i];
+        std::cout << input[i];
 }
 
 void Contact::view(void){
+    std::stringstream id("");
 
     if(firstname.empty())
         return ;
-    cout << "      |";
-    // print_align(std::wstring(index));
-    // cout << "|";
+    id << index;
+    std::cout << "      |";
+    print_align(id.str());
+    std::cout << "|";
     print_align(firstname);
-    cout << "|";
+    std::cout << "|";
     print_align(lastname);
-    cout << "|";
+    std::cout << "|";
     print_align(nickname);
-    cout << "|" << endl;
+    std::cout << "|" << std::endl;
 }
+
+void Contact::view_all(void){
+    std::cout << "            Firstname: " << firstname << std::endl;
+    std::cout << "            Lastname: " << lastname << std::endl;
+    std::cout << "            Nickname: " << nickname << std::endl;
+    std::cout << "            Phone Number: " << phonenumber << std::endl;
+//     std::cout << "            Darkest Secret: " << darkestsecret << std::endl;
+}
+
+void Contact::eof_received(void){
+    std::cout << "-- End-of-file received! --" << std::endl;
+    std::cout << "   Thank you for your service!" << std::endl;
+    exit(0);
+}
+
+// void Contact::init_data(void){
+//     firstname = "";
+//     lastname = "";
+//     nickname = "";
+//     phonenumber = "";
+//     darkestsecret = "";
+// }

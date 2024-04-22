@@ -20,11 +20,16 @@ int main() {
     //get the user input
     PhoneBook master;
 
+    // master.init_empty_contact();
     master.welcome_prompt();
     do{
         std::string input = "";
-        cout << "   Please enter a command: ";
-        getline(cin, input);
+        std::cout << "   Please enter a command: ";
+        getline(std::cin, input);
+        if (input.empty() && std::cin.eof()) {
+            std::cout << "-- End-of-file received! --" << std::endl;
+            master.exit_phonebook();
+        }
         if (input == "ADD")
             master.add_contact();
         else if (input == "SEARCH")
@@ -32,7 +37,8 @@ int main() {
         else if (input == "EXIT")
             master.exit_phonebook();
         else
-            cout << "      Invalid Command!" << endl;
+            std::cout << "      Invalid Command!" << std::endl;
     }while(1);
+    std::cout << "   Thank you for your service!" << std::endl;
     return 0;
 }
