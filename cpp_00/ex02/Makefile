@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME:= log
+NAME:= Account
 COMPILE:= c++
 CPPFLAGS:= -Wall -Wextra -Werror -g3 -fsanitize=address -std=c++98
 
