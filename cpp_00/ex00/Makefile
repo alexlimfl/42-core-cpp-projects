@@ -12,7 +12,7 @@
 
 NAME:= megaphone
 COMPILE:= c++
-CPPFLAGS:= -Wall -Wextra -Werror -g3 -fsanitize=address -std=c++98
+CPPFLAGS:= -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
 
 SRC_FILES:= megaphone.cpp
 DIR_SRC:= src
