@@ -14,7 +14,7 @@ NAME:= Zombie
 COMPILE:= c++
 CPPFLAGS:= -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
 
-SRC_FILES:= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC_FILES:= main.cpp Zombie.cpp zombieHorde.cpp
 DIR_SRC:= src
 SRCS := $(addprefix $(DIR_SRC)/, $(SRC_FILES))
 
