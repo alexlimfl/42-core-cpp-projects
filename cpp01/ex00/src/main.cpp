@@ -18,4 +18,5 @@ int main(){
     z->announce();
     randomChump("John");
     delete z;
+    return (0);
 }
