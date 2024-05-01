@@ -6,14 +6,14 @@
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 01:19:02 by folim             #+#    #+#             */
-/*   Updated: 2024/04/30 16:42:05 by folim            ###   ########.fr       */
+/*   Updated: 2024/05/01 22:38:46 by folim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/HumanB.hpp"
 
-HumanB::HumanB(std::string name){
-    _weapon = NULL;
+HumanB::HumanB(std::string name) : _fists(Weapon("fists")){
+    _weapon = &_fists;
     _name = name;
     std::cout << "HumanB: " << name << " is created!" << std::endl;
 }
