@@ -19,7 +19,7 @@ HumanB::HumanB(std::string name) : _fists(Weapon("fists")){
 }
 
 HumanB::~HumanB(){
-    std::cout << "HumanB: " << _name << "is destroyed!" << std::endl;
+    std::cout << "HumanB: " << _name << " is destroyed!" << std::endl;
 }
 
 void    HumanB::attack(){
@@ -28,4 +28,6 @@ void    HumanB::attack(){
 
 void    HumanB::setWeapon(Weapon &weapon){
     _weapon = &weapon;
+    std::cout << "HumanB: " << _name << " is equiped with weapon: ";
+    std::cout << _weapon->getType() << "!" << std::endl;
 }

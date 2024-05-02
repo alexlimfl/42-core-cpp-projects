@@ -12,7 +12,7 @@
 
 NAME:= Zombie
 COMPILE:= c++
-CPPFLAGS:= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
+CPPFLAGS:= -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
 
 SRC_FILES:= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 DIR_SRC:= src
