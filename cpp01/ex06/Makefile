@@ -6,11 +6,11 @@
 #    By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/26 23:19:27 by folim             #+#    #+#              #
-#    Updated: 2024/05/08 22:26:42 by folim            ###   ########.fr        #
+#    Updated: 2024/05/08 22:39:49 by folim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME:= Harl
+NAME:= harlFilter
 COMPILE:= c++
 CPPFLAGS:= -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
 

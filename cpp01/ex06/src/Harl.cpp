@@ -6,7 +6,7 @@
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:34:21 by folim             #+#    #+#             */
-/*   Updated: 2024/05/08 22:37:38 by folim            ###   ########.fr       */
+/*   Updated: 2024/05/08 22:36:10 by folim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,15 @@ int Harl::check(std::string &input){
 
 
 void Harl::complain(std::string level){
-    switch (check(level))
-    {
+    switch (check(level)){
         case 0:
             debug();
-            break;
         case 1:
             info();
-            break;
         case 2:
             warning();
-            break;
         case 3:
             error();
-            break;
         default:
             break;
     }

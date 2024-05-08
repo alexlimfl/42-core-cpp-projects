@@ -6,13 +6,13 @@
 #    By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/26 23:19:27 by folim             #+#    #+#              #
-#    Updated: 2024/05/01 18:55:02 by folim            ###   ########.fr        #
+#    Updated: 2024/05/08 22:26:52 by folim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME:= Sed
 COMPILE:= c++
-CPPFLAGS:= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
+CPPFLAGS:= -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
 
 SRC_FILES:= main.cpp Sed.cpp
 DIR_SRC:= src
