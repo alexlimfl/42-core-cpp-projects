@@ -6,7 +6,7 @@
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:34:21 by folim             #+#    #+#             */
-/*   Updated: 2024/05/08 22:36:10 by folim            ###   ########.fr       */
+/*   Updated: 2024/05/10 14:45:19 by folim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int Harl::check(std::string &input){
     std::cout << "Invalid input!" << std::endl;
     return (-1);
 }
-
 
 void Harl::complain(std::string level){
     switch (check(level)){

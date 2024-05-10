@@ -6,7 +6,7 @@
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:34:21 by folim             #+#    #+#             */
-/*   Updated: 2024/05/08 22:37:38 by folim            ###   ########.fr       */
+/*   Updated: 2024/05/10 14:43:51 by folim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,33 +39,12 @@ void Harl::error( void ){
                 << std::endl;
 }
 
-int Harl::check(std::string &input){
+void Harl::complain(std::string input){
+    void (Harl::*ptr[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
     const char* levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     for (int i = 0; i < 4; i++){
         if (input == levels[i])
-            return (i);
+            return ((this->*ptr[i])());
     }
     std::cout << "Invalid input!" << std::endl;
-    return (-1);
-}
-
-
-void Harl::complain(std::string level){
-    switch (check(level))
-    {
-        case 0:
-            debug();
-            break;
-        case 1:
-            info();
-            break;
-        case 2:
-            warning();
-            break;
-        case 3:
-            error();
-            break;
-        default:
-            break;
-    }
 }
