@@ -6,7 +6,7 @@
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 13:51:26 by folim             #+#    #+#             */
-/*   Updated: 2024/05/13 13:53:31 by folim            ###   ########.fr       */
+/*   Updated: 2024/05/15 19:19:46 by folim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,26 @@
 
 #include <iostream>
 
-
+class Fixed{
+    private:
+        int                 _fp_value;
+        static const int    _frac_bits;
+    public:
+        Fixed(void);
+        Fixed(const Fixed &obj);
+        Fixed &operator= (const Fixed &other);
+        ~Fixed(void);
+        int getRawBits( void ) const; //that returns the raw value of the fixed-point value.
+        void setRawBits( int const raw ); //that sets the raw value of the fixed-point number.
+        // void getRawBits( int ) const
+        // {
+        //     std::cout << "keW\n";
+        // }
+        // Fixed &operator=(int const raw)
+        // {
+        //     _fp_value = raw;
+        //     return (*this);
+        // }
+};
 
 #endif
