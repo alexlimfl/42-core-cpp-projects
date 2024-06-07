@@ -12,24 +12,26 @@
 
 #include "../include/Fixed.hpp"
 
-Fixed::Fixed(): _fp_value(0){
+Fixed::Fixed(){
     std::cout << "Default Constructor Called" << std::endl;
+    this->_fp_value = 0;
+}
+
+Fixed::Fixed(const Fixed &obj){
+    std::cout << "Copy Constructor Called" << std::endl;
+    *this = obj; // copy assignment operator
+}
+
+Fixed &Fixed::operator=(const Fixed &src)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &src)
+		this->_fp_value = src.getRawBits();
+	return *this;
 }
 
 Fixed::~Fixed(){
     std::cout << "Destructor Called" << std::endl;
-}
-
-Fixed::Fixed(const Fixed &obj): _fp_value(obj._fp_value){
-    std::cout << "Default Constructor Called" << std::endl;
-}
-
-Fixed &Fixed::operator= (const Fixed &other){
-    
-    std::cout << "Copy assignment operator called" << std::endl;
-    if (other._fp_value != this->_fp_value)
-        this->_fp_value = other._fp_value;
-    return (*this);
 }
 
 int Fixed::getRawBits()const{
