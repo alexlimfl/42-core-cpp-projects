@@ -6,7 +6,7 @@
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 19:34:21 by folim             #+#    #+#             */
-/*   Updated: 2024/05/10 14:43:51 by folim            ###   ########.fr       */
+/*   Updated: 2024/06/11 15:44:50 by folim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ void Harl::error( void ){
                 << std::endl;
 }
 
+
 void Harl::complain(std::string input){
+    // Array of Pointers to Member Functions:
     void (Harl::*ptr[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
     const char* levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     for (int i = 0; i < 4; i++){
