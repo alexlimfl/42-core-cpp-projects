@@ -6,7 +6,7 @@
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 02:14:00 by folim             #+#    #+#             */
-/*   Updated: 2024/05/30 02:14:02 by folim            ###   ########.fr       */
+/*   Updated: 2024/06/13 17:02:21 by folim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,105 +67,105 @@ std::ostream	&operator << (std::ostream &o, Fixed const &fixed){
 	return (o);
 }
 
-// The 6 comparison operators: >, <, >=, <=, == and !=.
+// Parameterized Constructor
 
-        bool	Fixed::operator>(Fixed fixed) const{
-            return (this->toFloat() > fixed.toFloat());
-        }
+        // The 6 comparison operators: >, <, >=, <=, == and !=.
 
-        bool	Fixed::operator<(Fixed fixed) const{
-            return (this->toFloat() < fixed.toFloat());
-        }
+                bool	Fixed::operator>(Fixed fixed) const{
+                    return (this->toFloat() > fixed.toFloat());
+                }
 
-        bool	Fixed::operator>=(Fixed fixed) const{
-            return (this->toFloat() >= fixed.toFloat());
-        }
+                bool	Fixed::operator<(Fixed fixed) const{
+                    return (this->toFloat() < fixed.toFloat());
+                }
 
-        bool	Fixed::operator<=(Fixed fixed) const{
-            return (this->toFloat() <= fixed.toFloat());
-        }
+                bool	Fixed::operator>=(Fixed fixed) const{
+                    return (this->toFloat() >= fixed.toFloat());
+                }
 
-        bool	Fixed::operator==(Fixed fixed) const{
-            return (this->toFloat() == fixed.toFloat());
-        }
+                bool	Fixed::operator<=(Fixed fixed) const{
+                    return (this->toFloat() <= fixed.toFloat());
+                }
 
-        bool	Fixed::operator!=(Fixed fixed) const{
-            return (this->toFloat() != fixed.toFloat());
-        }
+                bool	Fixed::operator==(Fixed fixed) const{
+                    return (this->toFloat() == fixed.toFloat());
+                }
 
-// The 4 arithmetic operators: +,-, *, and /.
+                bool	Fixed::operator!=(Fixed fixed) const{
+                    return (this->toFloat() != fixed.toFloat());
+                }
 
-        float   Fixed::operator+(Fixed obj) const{
-            return (this->toFloat() + obj.toFloat());
-        }
+        // The 4 arithmetic operators: +,-, *, and /.
 
-        float   Fixed::operator-(Fixed obj) const{
-            return (this->toFloat() - obj.toFloat());
-        }
+                float   Fixed::operator+(Fixed obj) const{
+                    return (this->toFloat() + obj.toFloat());
+                }
 
-        float   Fixed::operator*(Fixed obj) const{
-            return (this->toFloat() * obj.toFloat());
-        }
+                float   Fixed::operator-(Fixed obj) const{
+                    return (this->toFloat() - obj.toFloat());
+                }
 
-        float   Fixed::operator/(Fixed obj) const{
-            return (this->toFloat() / obj.toFloat());
-        }
+                float   Fixed::operator*(Fixed obj) const{
+                    return (this->toFloat() * obj.toFloat());
+                }
 
-// The pre-increment and post-increment operators.
+                float   Fixed::operator/(Fixed obj) const{
+                    return (this->toFloat() / obj.toFloat());
+                }
 
-        Fixed	Fixed::operator++(){
-            this->_fp_value++;
-            return (*this);
-        }
+        // The pre-increment and post-increment operators.
 
-        Fixed	Fixed::operator++(int){
-            Fixed tmp = *this;
-            // i = this->_fp_value;
-            ++this->_fp_value;
-            return (tmp);
-        }
+                Fixed	Fixed::operator++(){
+                    this->_fp_value++;
+                    return (*this);
+                }
 
-// The pre-decrement and post-decrement operators.
+                Fixed	Fixed::operator++(int){
+                    Fixed tmp = *this;
+                    ++this->_fp_value;
+                    return (tmp);
+                }
 
-        Fixed	Fixed::operator--(){
-            this->_fp_value--;
-            return (*this);
-        }
+        // The pre-decrement and post-decrement operators.
 
-        Fixed	Fixed::operator--(int){
-            Fixed tmp = *this;
-            // i = this->_fp_value;
-            --this->_fp_value;
-            return (tmp);
-        }
+                Fixed	Fixed::operator--(){
+                    this->_fp_value--;
+                    return (*this);
+                }
+
+                Fixed	Fixed::operator--(int){
+                    Fixed tmp = *this;
+                    --this->_fp_value;
+                    return (tmp);
+                }
 
 
-// four public overloaded member functions.
+        // four public overloaded member functions.
 
-        Fixed	&Fixed::min(Fixed &first, Fixed &second){
-            if (first.toFloat() <= second.toFloat())
-                return (first);
-            else
-                return (second);
-        }
+                Fixed	&Fixed::min(Fixed &first, Fixed &second){
+                    if (first.toFloat() <= second.toFloat())
+                        return (first);
+                    else
+                        return (second);
+                }
 
-        const Fixed	&Fixed::min(const Fixed &first, const Fixed &second){
-            if (first.toFloat() <= second.toFloat())
-                return (first);
-            else
-                return (second);
-        }
+                const Fixed	&Fixed::min(const Fixed &first, const Fixed &second){
+                    if (first.toFloat() <= second.toFloat())
+                        return (first);
+                    else
+                        return (second);
+                }
 
-        Fixed	&Fixed::max(Fixed &first, Fixed &second){
-            if (first.toFloat() >= second.toFloat())
-                return (first);
-            else
-                return (second);
-        }
+                Fixed	&Fixed::max(Fixed &first, Fixed &second){
+                    if (first.toFloat() >= second.toFloat())
+                        return (first);
+                    else
+                        return (second);
+                }
 
-        const Fixed	&Fixed::max(const Fixed &first, const Fixed &second){
-            if (first.toFloat() >= second.toFloat())
-                return (first);
-            else
-                return (second);
-        }
+                const Fixed	&Fixed::max(const Fixed &first, const Fixed &second){
+                    if (first.toFloat() >= second.toFloat())
+                        return (first);
+                    else
+                        return (second);
+                }

@@ -6,7 +6,7 @@
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 13:51:26 by folim             #+#    #+#             */
-/*   Updated: 2024/05/15 19:19:46 by folim            ###   ########.fr       */
+/*   Updated: 2024/06/13 13:41:13 by folim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Fixed{
         ~Fixed(void);
         int getRawBits( void ) const; // that returns the raw value of the fixed-point value.
         void setRawBits( int const raw ); // that sets the raw value of the fixed-point number.
+        // std::string         test;
 };
 
 #endif

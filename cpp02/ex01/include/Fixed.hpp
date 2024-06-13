@@ -6,7 +6,7 @@
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 02:13:24 by folim             #+#    #+#             */
-/*   Updated: 2024/05/30 02:13:25 by folim            ###   ########.fr       */
+/*   Updated: 2024/06/13 16:38:46 by folim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Fixed{
         Fixed(const Fixed   &obj);
         Fixed &operator=(const Fixed &src);
         ~Fixed();
-        int     getRawBits( void ) const; // that returns the raw value of the fixed-point value.
+        int     getRawBits( void ) const;
         void    setRawBits( int const raw );
         float	toFloat(void) const;
         int     toInt( void ) const;
