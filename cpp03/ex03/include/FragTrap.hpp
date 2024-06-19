@@ -16,11 +16,13 @@
 #include "ClapTrap.hpp"
 
 class FragTrap : virtual public ClapTrap{
-    protected:
-        int     _hitPoints;
-        int     _attackDamage;
+    // protected:
+    //     int     _hitPoints;
+    //     int     _attackDamage;
     public:
         FragTrap(std::string name);
+        FragTrap(const FragTrap &src);
+        FragTrap &operator= (const FragTrap &src);
         ~FragTrap();
         void    attack(const std::string& target);
         void    highFivesGuys();

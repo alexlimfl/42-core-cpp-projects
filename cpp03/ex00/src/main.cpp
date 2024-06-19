@@ -14,21 +14,36 @@
 
 int main(){
 
-    ClapTrap    alex("Alex");
-    alex.attack("Josh");
-    alex.takeDamage(5);
-    alex.beRepaired(6);
-    alex.takeDamage(6);
-    alex.attack("Josh");
-    alex.attack("Josh");
-    alex.attack("Josh");
-    alex.attack("Josh");
-    alex.attack("Josh");
-    alex.attack("Josh");
-    alex.attack("Josh");
-    alex.attack("Josh");
-    // alex.attack("Josh");
-    // alex.beRepaired(6);
+    {
+        ClapTrap    alex("Alex");
+        alex.attack("Josh");
+        alex.takeDamage(5);
+        alex.beRepaired(6);
+        alex.takeDamage(6);
+        alex.attack("Josh");
+        alex.attack("Josh");
+        alex.attack("Josh");
+        alex.attack("Josh");
+        alex.attack("Josh");
+        alex.attack("Josh");
+        alex.attack("Josh");
+        alex.attack("Josh");
+        // alex.attack("Josh");
+        // alex.beRepaired(6);
+    }
+
+    // Orthodox Canonical Form Test
+    {
+        std::cout << "\nOrthodox Canonical Form Test\n";
+        ClapTrap    alex("Alex");
+        ClapTrap    bean(alex);
+        ClapTrap    cindy("Cindy");
+
+        cindy = bean;
+        alex.attack("Josh");
+        bean.attack("Josh");
+        cindy.attack("Josh");
+    }
 
     return 0;
 }

@@ -14,10 +14,28 @@
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
     this->_hitPoints = 100;
-    ClapTrap::_energy = 50;
-    ScavTrap::_energy = ClapTrap::_energy;
+    // ClapTrap::_energy = 50;
+    // ScavTrap::_energy = ClapTrap::_energy;
+    this->_energy = 50;
     this->_attackDamage = 20;
     std::cout << "ScavTrap " << this->_name << " is constructed!\n";
+}
+
+ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src._name){
+    std::cout << "Copy constructor called" << std::endl;
+    *this = src;
+}
+
+ScavTrap &ScavTrap::operator=(const ScavTrap &src)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &src){
+		this->_hitPoints = src._hitPoints;
+        this->_energy = src._energy;
+        this->_attackDamage = src._attackDamage;
+        this->_name = src._name;
+    }
+	return *this;
 }
 
 ScavTrap::~ScavTrap(){
@@ -29,10 +47,10 @@ void ScavTrap::attack(const std::string& target){
         std::cout << "ScavTrap " << _name << " has no energy points left!\n";
         return;
     }
-    ClapTrap::_energy -= 1;
+    _energy -= 1;
     std::cout   << "ScavTrap " << _name << " attacks " << target
                 << " causing " << _attackDamage << " points of damage! "
-                << "Current energy point is " << ClapTrap::_energy << "!\n";
+                << "Current energy point is " << _energy << "!\n";
 }
 
 void ScavTrap::guardGate(){

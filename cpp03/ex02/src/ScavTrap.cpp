@@ -19,6 +19,26 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
     std::cout << "ScavTrap " << this->_name << " is constructed!\n";
 }
 
+// Note: Always initialize base class member attributes.
+
+ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src._name){
+    std::cout << "Copy constructor called" << std::endl;
+    *this = src;
+}
+
+
+ScavTrap &ScavTrap::operator=(const ScavTrap &src)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &src){
+		this->_hitPoints = src._hitPoints;
+        this->_energy = src._energy;
+        this->_attackDamage = src._attackDamage;
+        this->_name = src._name;
+    }
+	return *this;
+}
+
 ScavTrap::~ScavTrap(){
     std::cout << "ScavTrap " << this->_name << " is destructed!\n";
 }

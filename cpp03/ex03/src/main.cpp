@@ -16,44 +16,6 @@
 #include "../include/DiamondTrap.hpp"
 
 int main(){
-
-    ClapTrap    alex("Alex");
-    alex.attack("Josh");
-    alex.takeDamage(5);
-    alex.beRepaired(6);
-    alex.takeDamage(6);
-    alex.attack("Josh");
-    alex.attack("Josh");
-    alex.attack("Josh");
-    alex.attack("Josh");
-    alex.attack("Josh");
-    alex.attack("Josh");
-    alex.attack("Josh");
-    alex.attack("Josh");
-    // alex.attack("Josh");
-    // alex.beRepaired(6);
-    
-    std::cout << "///////////////////////\n";
-    
-    ScavTrap    abby("Abby");
-    abby.attack("John");
-    abby.takeDamage(5);
-    abby.beRepaired(6);
-    abby.takeDamage(5);
-    abby.attack("John");
-    abby.guardGate();
-    
-    std::cout << "///////////////////////\n";
-    
-    FragTrap    beary("Beary");
-    beary.attack("Shu");
-    beary.takeDamage(5);
-    beary.beRepaired(6);
-    beary.takeDamage(5);
-    beary.attack("Shu");
-    beary.highFivesGuys();
-
-    std::cout << "///////////////////////\n";
     DiamondTrap diana("Diana");
     diana.attack("Maria");
     diana.takeDamage(5);
@@ -64,6 +26,18 @@ int main(){
     diana.highFivesGuys();
     diana.whoAmI();
 
+    // Orthodox Canonical Form Test
+    std::cout << "\nOrthodox Canonical Form Test\n";
+    DiamondTrap diana2(diana);
+    DiamondTrap diana3("Diana3");
+    diana3.attack("John");
+    diana3.takeDamage(25);
+    diana3.beRepaired(5);
+    diana3.guardGate();
+    diana3.highFivesGuys();
+    diana3.whoAmI();
+    diana2 = diana3;
+    diana3.whoAmI();
 
     return 0;
 }

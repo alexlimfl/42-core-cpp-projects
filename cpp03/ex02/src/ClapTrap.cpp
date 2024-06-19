@@ -20,6 +20,23 @@ ClapTrap::ClapTrap(std::string _name){
     std::cout << "ClapTrap " << this->_name << " is constructed!\n";
 }
 
+ClapTrap::ClapTrap(const ClapTrap &src){
+    std::cout << "Copy constructor called" << std::endl;
+    *this = src;
+}
+
+ClapTrap &ClapTrap::operator=(const ClapTrap &src)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &src){
+		this->_hitPoints = src._hitPoints;
+        this->_energy = src._energy;
+        this->_attackDamage = src._attackDamage;
+        this->_name = src._name;
+    }
+	return *this;
+}
+
 ClapTrap::~ClapTrap(){
     std::cout << "ClapTrap " << this->_name << " is destructed!\n";
 }
