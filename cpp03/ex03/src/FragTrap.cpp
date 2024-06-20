@@ -13,13 +13,8 @@
 #include "../include/FragTrap.hpp"
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name){
-
-    // ClapTrap::_hitPoints = 100;
-    // this->_hitPoints = ClapTrap::_hitPoints;
     this->_hitPoints = 100;
     this->_energy = 100;
-    // ClapTrap::_attackDamage = 30;
-    // this->_attackDamage = ClapTrap::_attackDamage;
     this->_attackDamage = 30;
     std::cout << "FragTrap " << this->_name << " is constructed!\n";
 }
