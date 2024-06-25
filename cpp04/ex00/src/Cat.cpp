@@ -33,3 +33,7 @@ Cat &Cat::operator= (const Cat &src){
 Cat::~Cat(){
     std::cout << "Destructor [Cat]\n";
 }
+
+void    Cat::makeSound() const {
+    std::cout << "Meow!\n";
+}

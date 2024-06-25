@@ -33,8 +33,12 @@ WrongAnimal::~WrongAnimal(){
     std::cout << "Destructor [WrongAnimal]\n";
 }
 
+// void    WrongAnimal::makeSound() const{
+//     std::cout << "WrongAnimal sound!\n";
+// }
+
 void    WrongAnimal::makeSound() const{
-    std::cout << "WrongCat sound!\n";
+    std::cout << "WrongAnimal sound!\n";
 }
 
 std::string WrongAnimal::getType() const{

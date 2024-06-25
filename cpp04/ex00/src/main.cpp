@@ -35,9 +35,9 @@ int main()
 
     {
         std::cout << "\n--- Wrong Animal Test! ---\n";
-        const WrongAnimal* meta = new WrongAnimal();
+        const Animal* meta = new Animal();
         const Animal* j = new Dog();
-        const WrongAnimal* i = new WrongCat();
+        const WrongAnimal* i = new WrongCat(); // this line has changed
         std::cout << j->getType() << " " << std::endl;
         std::cout << i->getType() << " " << std::endl;
         i->makeSound();

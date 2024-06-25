@@ -33,3 +33,7 @@ Dog &Dog::operator= (const Dog &src){
 Dog::~Dog(){
     std::cout << "Destructor [Dog]\n";
 }
+
+void    Dog::makeSound() const{
+    std::cout << "Woof!\n";
+}

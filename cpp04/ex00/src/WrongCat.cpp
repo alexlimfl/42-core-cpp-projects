@@ -33,3 +33,7 @@ WrongCat &WrongCat::operator= (const WrongCat &src){
 WrongCat::~WrongCat(){
     std::cout << "Destructor [WrongCat]\n";
 }
+
+// void    WrongCat::makeSound() const{
+//     std::cout << "WrongCat sound!\n";
+// }
