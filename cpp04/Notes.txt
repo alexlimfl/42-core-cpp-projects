@@ -1,0 +1,25 @@
+
+
+Polymorphism
+    Compile-time polymorphism:
+        Function overloading and operator overloading.
+    Run-time polymorphism:
+        Using inheritance and virtual functions, allowing derived classes to override
+        base class methods.
+        Promotes flexibility and reusability in code by enabling one interface to be used for
+        different underlying forms (data types)
+        Without declaring a base class member function as virtual will cause 
+        the program to run the base class member function despite having identical
+        function in derived or not.
+
+Virtual destructor
+    Ensures the derived class destructor is called when deleting
+    an object through a base class pointer. Without it, only only
+    base destructor is called.
+
+const
+    Without putting the keyword the function unable to
+    handle object that is declared as constant object.
+
+try & catch (Handles dynamic mememory allocation failure)
+    

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,33 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/WrongAnimal.hpp"
+#include "../include/Brain.hpp"
 
-WrongAnimal::WrongAnimal(){
-    std::cout << "Constructor [WrongAnimal]\n";
+Brain::Brain(){
+    std::cout << "Constructor [Brain]\n";
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &src){
-    std::cout << "Copy Constructor [WrongAnimal]\n";
+Brain::Brain(const Brain &src){
+    std::cout << "Copy Constructor [Brain]\n";
     *this = src;
 }
 
-WrongAnimal &WrongAnimal::operator= (const WrongAnimal &src){
-    std::cout << "Copy Assignment Operator [WrongAnimal]\n";
+Brain &Brain::operator= (const Brain &src){
+    std::cout << "Copy Assignment Operator [Brain]\n";
     if (this != &src){
-        this->type = src.type;
+        for ( int i = 0; i < 100; i++ )
+            this->ideas[i] = src.ideas[i];
     }
     return *this;
 }
 
-WrongAnimal::~WrongAnimal(){
-    std::cout << "Destructor [WrongAnimal]\n";
-}
-
-void    WrongAnimal::makeSound() const{
-    std::cout << "WrongAnimal sound!\n";
-}
-
-std::string WrongAnimal::getType() const{
-    return this->type;
+Brain::~Brain(){
+    std::cout << "Destructor [Brain]\n";
 }

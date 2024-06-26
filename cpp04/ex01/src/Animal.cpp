@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,33 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/WrongAnimal.hpp"
+#include "../include/Animal.hpp"
 
-WrongAnimal::WrongAnimal(){
-    std::cout << "Constructor [WrongAnimal]\n";
+Animal::Animal(){
+    std::cout << "Constructor [Animal]\n";
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &src){
-    std::cout << "Copy Constructor [WrongAnimal]\n";
+Animal::Animal(const Animal &src){
+    std::cout << "Copy Constructor [Animal]\n";
     *this = src;
 }
 
-WrongAnimal &WrongAnimal::operator= (const WrongAnimal &src){
-    std::cout << "Copy Assignment Operator [WrongAnimal]\n";
+Animal &Animal::operator= (const Animal &src){
+    std::cout << "Copy Assignment Operator [Animal]\n";
     if (this != &src){
         this->type = src.type;
     }
     return *this;
 }
 
-WrongAnimal::~WrongAnimal(){
-    std::cout << "Destructor [WrongAnimal]\n";
+Animal::~Animal(){
+    std::cout << "Destructor [Animal]\n";
 }
 
-void    WrongAnimal::makeSound() const{
-    std::cout << "WrongAnimal sound!\n";
+void    Animal::makeSound() const{
+    std::cout << "Animal sound!\n";
 }
 
-std::string WrongAnimal::getType() const{
+std::string Animal::getType() const{
     return this->type;
 }
