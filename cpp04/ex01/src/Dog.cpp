@@ -26,7 +26,15 @@ Dog::Dog(): Animal() {
 
 Dog::Dog(const Dog &src): Animal() {
     std::cout << "Copy Constructor [Dog]\n";
-    *this = src;
+    // *this = src;
+    this->type = src.type;
+    try{
+        this->_brain = new Brain(*src._brain);
+        // this->_brain = src._brain;
+    } catch (const  std::bad_alloc &e){
+        std::cerr << "Memory Allocation Failed: " << e.what() << "\n";
+        this->_brain = NULL;
+    }
 }
 
 Dog &Dog::operator= (const Dog &src){
@@ -51,4 +59,8 @@ Dog::~Dog(){
 
 void    Dog::makeSound() const{
     std::cout << "Woof!\n";
+}
+
+void    Dog::getMemAddress(){
+    std::cout << this->_brain << "\n";
 }

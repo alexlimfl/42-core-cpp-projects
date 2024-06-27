@@ -40,3 +40,7 @@ void    Animal::makeSound() const{
 std::string Animal::getType() const{
     return this->type;
 }
+
+void    Animal::set_type(std::string new_type){
+    this->type = new_type;
+}

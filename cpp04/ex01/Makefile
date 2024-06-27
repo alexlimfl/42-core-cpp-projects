@@ -13,7 +13,7 @@
 
 NAME:= SettingFire
 COMPILE:= c++
-CPPFLAGS:= -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
+CPPFLAGS:= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 SRC_FILES:= main.cpp Animal.cpp Dog.cpp Cat.cpp\
 			WrongAnimal.cpp WrongCat.cpp Brain.cpp

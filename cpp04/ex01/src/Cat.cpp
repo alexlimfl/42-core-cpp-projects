@@ -25,17 +25,24 @@ Cat::Cat(): Animal() {
 
 Cat::Cat(const Cat &src): Animal() {
     std::cout << "Copy Constructor [Cat]\n";
-    *this = src;
+    // *this = src;
+    this->type = src.type;
+    try{
+        this->_brain = new Brain(*src._brain);
+    } catch (const  std::bad_alloc &e){
+        std::cerr << "Memory Allocation Failed: " << e.what() << "\n";
+        this->_brain = NULL;
+    }
 }
 
 Cat &Cat::operator= (const Cat &src){
     std::cout << "Copy Assignment Operator [Cat]\n";
     if (this != &src){
-        this->type = src.type;
         delete this->_brain;
         this->type = src.type;
         try{
             this->_brain = new Brain(*src._brain);
+            // this->_brain = src._brain;
         } catch (const  std::bad_alloc &e){
             std::cerr << "Memory Allocation Failed: " << e.what() << "\n";
             this->_brain = NULL;
@@ -51,4 +58,8 @@ Cat::~Cat(){
 
 void    Cat::makeSound() const {
     std::cout << "Meow!\n";
+}
+
+void    Cat::getMemAddress(){
+    std::cout << this->_brain << "\n";
 }
