@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/26 22:56:27 by folim             #+#    #+#             */
-/*   Updated: 2024/06/26 22:56:29 by folim            ###   ########.fr       */
+/*   Created: 2024/06/28 22:13:56 by folim             #+#    #+#             */
+/*   Updated: 2024/06/28 22:13:57 by folim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __BRAIN_H__
-    #define __BRAIN_H__
 
-#include <iostream>
+#ifndef __CURE_H__
+    #define __CURE_H__
 
-class Brain{
-    private:
-        std::string _ideas[100];
+#include "AMateria.hpp"
+
+class Cure : public AMateria{
     public:
-        Brain();
-        ~Brain();
-        Brain(const Brain &src);
-        Brain &operator= (const Brain &src);
-};
+        Cure();
+        
+        virtual void ~Cure = 0;
+
+}
 
 #endif

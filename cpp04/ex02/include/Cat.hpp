@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/26 22:56:27 by folim             #+#    #+#             */
-/*   Updated: 2024/06/26 22:56:29 by folim            ###   ########.fr       */
+/*   Created: 2024/06/24 23:19:32 by folim             #+#    #+#             */
+/*   Updated: 2024/06/24 23:19:34 by folim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __BRAIN_H__
-    #define __BRAIN_H__
+#ifndef __CAT_H__
+    #define __CAT_H__
 
 #include <iostream>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class Brain{
+class Cat : public Animal{
     private:
-        std::string _ideas[100];
+        Brain   *_brain;
     public:
-        Brain();
-        ~Brain();
-        Brain(const Brain &src);
-        Brain &operator= (const Brain &src);
+        Cat();
+        Cat(const Cat &src);
+        Cat &operator= (const Cat &src);
+        ~Cat();
+        void    makeSound() const;
+        void    getMemAddress();
 };
-
 #endif

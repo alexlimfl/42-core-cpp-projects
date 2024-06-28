@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,26 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Brain.hpp"
+#include "../include/Animal.hpp"
 
-Brain::Brain(){
-    std::cout << "Constructor [Brain]\n";
+Animal::Animal(){
+    std::cout << "Constructor [Animal]\n";
 }
 
-Brain::Brain(const Brain &src){
-    std::cout << "Copy Constructor [Brain]\n";
+Animal::Animal(const Animal &src){
+    std::cout << "Copy Constructor [Animal]\n";
     *this = src;
 }
 
-Brain &Brain::operator= (const Brain &src){
-    std::cout << "Copy Assignment Operator [Brain]\n";
+Animal &Animal::operator= (const Animal &src){
+    std::cout << "Copy Assignment Operator [Animal]\n";
     if (this != &src){
-        for ( int i = 0; i < 100; i++ )
-            this->_ideas[i] = src._ideas[i];
+        this->type = src.type;
     }
     return *this;
 }
 
-Brain::~Brain(){
-    std::cout << "Destructor [Brain]\n";
+Animal::~Animal(){
+    std::cout << "Destructor [Animal]\n";
+}
+
+void    Animal::makeSound() const{
+    std::cout << "Animal sound!\n";
+}
+
+std::string Animal::getType() const{
+    return this->type;
+}
+
+void    Animal::set_type(std::string new_type){
+    this->type = new_type;
 }

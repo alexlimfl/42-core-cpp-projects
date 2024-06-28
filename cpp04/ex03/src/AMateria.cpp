@@ -1,28 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/26 22:56:27 by folim             #+#    #+#             */
-/*   Updated: 2024/06/26 22:56:29 by folim            ###   ########.fr       */
+/*   Created: 2024/06/28 22:53:00 by folim             #+#    #+#             */
+/*   Updated: 2024/06/28 22:53:02 by folim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __BRAIN_H__
-    #define __BRAIN_H__
 
-#include <iostream>
-
-class Brain{
-    private:
-        std::string _ideas[100];
-    public:
-        Brain();
-        ~Brain();
-        Brain(const Brain &src);
-        Brain &operator= (const Brain &src);
-};
-
-#endif

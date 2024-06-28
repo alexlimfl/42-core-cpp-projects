@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/26 22:56:27 by folim             #+#    #+#             */
-/*   Updated: 2024/06/26 22:56:29 by folim            ###   ########.fr       */
+/*   Created: 2024/06/28 22:13:43 by folim             #+#    #+#             */
+/*   Updated: 2024/06/28 22:13:44 by folim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __BRAIN_H__
-    #define __BRAIN_H__
+#include "AMateria.hpp"
 
-#include <iostream>
+#ifndef __ICE_H__
+    #define __ICE_H__
 
-class Brain{
-    private:
-        std::string _ideas[100];
+class Ice : public AMateria{
     public:
-        Brain();
-        ~Brain();
-        Brain(const Brain &src);
-        Brain &operator= (const Brain &src);
-};
+        Ice(const Ice &src);
+        Ice &operator= (const Ice &src);
+        virtual ~Ice() = 0;
+}
 
 #endif
