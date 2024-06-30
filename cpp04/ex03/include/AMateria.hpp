@@ -14,16 +14,19 @@
     #define __AMTERIA_H__
 
 #include <iostream>
+#include "ICharacter.hpp"
 
- class AMateria
+class ICharacter;
+
+class AMateria
  {
     protected:
         std::string type;
 
     public:
         AMateria(std::string const & type);
-        AMateria(const AMateria &src);
-        AMateria &operator= (const AMateria &src);
+        // AMateria(const AMateria &src);
+        // AMateria &operator= (const AMateria &src);
         virtual ~AMateria() = 0;
 
         std::string const & getType() const; //Returns the materia type

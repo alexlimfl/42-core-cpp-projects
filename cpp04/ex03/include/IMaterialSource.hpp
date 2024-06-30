@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   IMaterialSource.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,16 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef __IMATERIALSOURCE_H__
+    #define __IMATERIALSOURCE_H__
+
 #include "AMateria.hpp"
 
-#ifndef __ICE_H__
-    #define __ICE_H__
-
-class Ice : public AMateria{
+class IMateriaSource
+{
     public:
-        Ice(const Ice &src);
-        Ice &operator= (const Ice &src);
-        virtual ~Ice() = 0;
+    virtual ~IMateriaSource() {}
+    virtual void learnMateria(AMateria*) = 0;
+    virtual AMateria* createMateria(std::string const & type) = 0;
 };
 
 #endif

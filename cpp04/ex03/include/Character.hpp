@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,16 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#ifndef __CHARACTER_H__
+    #define __CHARACTER_H__
 
-#ifndef __ICE_H__
-    #define __ICE_H__
+#include "ICharacter.hpp";
 
-class Ice : public AMateria{
+class Character : public ICharacter{
+    private:
+        std::string _name;
+        AMateria    *_inventory[4];
     public:
-        Ice(const Ice &src);
-        Ice &operator= (const Ice &src);
-        virtual ~Ice() = 0;
+        Character(std::string name);
+        ~Character();
+        std::string const & getName() const = 0;
+        void equip(AMateria* m);
+        void unequip(int idx);
+        void use(int idx, ICharacter& target);
 };
 
 #endif

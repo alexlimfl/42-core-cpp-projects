@@ -19,9 +19,9 @@
 class Cure : public AMateria{
     public:
         Cure();
-        
+
         virtual void ~Cure = 0;
 
-}
+};
 
 #endif
