@@ -10,4 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/Ice.hpp"
 
+Ice::Ice() : AMateria("ice"){
+    std::cout << "Constructor [" << this->type << "]\n";
+}
+
+Ice::~Ice(){
+    std::cout << "Destructor [" << this->type << "]\n";
+}
+
+Ice::Ice(const Ice &src) : AMateria("ice"){
+    *this = src;
+    std::cout << "Copy Constructor [Ice, " << this->type << "]\n";
+}
+
+Ice & Ice::operator= (const Ice &src){
+    if (this != &src)
+        type = src.type;
+    std::cout << "Copy Assignment Operator [Ice, " << this->type << "]\n";
+    return *this;
+}
+
+std::string const & Ice::getType() const{
+    return (this->type);
+}
+
+Ice *Ice::clone() const{
+	Ice	*new_instance = new Ice;
+	return (new_instance);
+}
+
+void Ice::use(ICharacter& target){
+    std::cout << "* shoots an ice bolt at " << target.getName() << "*\n";
+}

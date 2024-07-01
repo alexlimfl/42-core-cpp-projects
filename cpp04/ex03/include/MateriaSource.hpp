@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMaterialSource.hpp                                :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,17 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __IMATERIALSOURCE_H__
-    #define __IMATERIALSOURCE_H__
+#ifndef __MATERIASOURCE_H__
+    #define __MATERIASOURCE_H__
 
-#include "AMateria.hpp"
+#include "IMateriaSource.hpp"
 
-class IMateriaSource
-{
+class MateriaSource : public IMateriaSource{
+    private:
+        AMateria *_template[4];
     public:
-    virtual ~IMateriaSource() {}
-    virtual void learnMateria(AMateria*) = 0;
-    virtual AMateria* createMateria(std::string const & type) = 0;
+        MateriaSource();
+        ~MateriaSource();
+        MateriaSource(const MateriaSource & src);
+		MateriaSource & operator=(const MateriaSource & src);
+        void learnMateria(AMateria *m);
+        AMateria* createMateria(std::string const & type);
 };
 
 #endif

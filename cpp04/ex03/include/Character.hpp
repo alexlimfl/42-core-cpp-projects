@@ -13,7 +13,7 @@
 #ifndef __CHARACTER_H__
     #define __CHARACTER_H__
 
-#include "ICharacter.hpp";
+#include "ICharacter.hpp"
 
 class Character : public ICharacter{
     private:
@@ -22,7 +22,9 @@ class Character : public ICharacter{
     public:
         Character(std::string name);
         ~Character();
-        std::string const & getName() const = 0;
+		Character(const Character & src);
+		Character & operator=(const Character & src);
+        std::string const & getName() const;
         void equip(AMateria* m);
         void unequip(int idx);
         void use(int idx, ICharacter& target);

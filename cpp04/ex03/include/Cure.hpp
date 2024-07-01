@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef __CURE_H__
     #define __CURE_H__
 
@@ -19,8 +18,13 @@
 class Cure : public AMateria{
     public:
         Cure();
+        ~Cure();
+        Cure(const Cure &src);
+        Cure & operator= (const Cure &src);
+        std::string const & getType() const; //Returns the materia type
+        Cure* clone() const;
+        void use(ICharacter& target);
 
-        virtual void ~Cure = 0;
 
 };
 

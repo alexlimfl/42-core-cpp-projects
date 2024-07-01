@@ -14,11 +14,23 @@
 
 AMateria::AMateria(std::string const & type){
     this->type = type;
-    std::cout << "Contructor [AMaterial]\n";
+    std::cout << "Contructor [AMaterial, " << this->type << "]\n";
 }
 
 AMateria::~AMateria(){
-    std::cout << "Destructor [AMateria]\n";
+    std::cout << "Destructor [AMaterial, " << this->type << "]\n";
+}
+
+AMateria::AMateria(const AMateria &src){
+    *this = src;
+    std::cout << "Copy Constructor [AMaterial, " << this->type << "]\n";
+}
+
+AMateria & AMateria::operator= (const AMateria &src){
+    if (this != &src)
+        type = src.type;
+    std::cout << "Copy Assignment Operator [AMaterial, " << this->type << "]\n";
+    return *this;
 }
 
 std::string const & AMateria::getType() const{

@@ -28,6 +28,27 @@ Character::~Character(){
     }
 }
 
+Character::Character(const Character &src){
+    this->_name = src.getName();
+	for(int i = 0; i < 4; i++){
+		if (src._inventory[i])
+			this->_inventory[i] = src._inventory[i]->clone();
+	}
+    std::cout << "Copy Constructor [Character, " << this->_name << "]\n";
+}
+
+Character & Character::operator=(const Character &src){
+    this->_name = src.getName();
+	for(int i = 0; i < 4; i++){
+		if (this->_inventory[i])
+			delete this->_inventory[i];
+		if (src._inventory[i])
+			this->_inventory[i] = (src._inventory[i])->clone();
+	}
+    std::cout << "Copy Assignment Operator [Character, " << this->_name << "]\n";
+	return (*this);
+}
+
 std::string const & Character::getName() const{
     return (this->_name);
 }
