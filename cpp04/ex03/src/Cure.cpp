@@ -13,11 +13,11 @@
 #include "../include/Cure.hpp"
 
 Cure::Cure() : AMateria("cure"){
-    std::cout << "Constructor [" << this->type << "]\n";
+    std::cout << "Constructor [Cure, " << this->type << "]\n";
 }
 
 Cure::~Cure(){
-    std::cout << "Destructor [" << this->type << "]\n";
+    std::cout << "Destructor [Cure, " << this->type << "]\n";
 }
 
 Cure::Cure(const Cure &src ) : AMateria("cure"){
@@ -37,7 +37,7 @@ std::string const & Cure::getType() const{
 }
 
 Cure *Cure::clone() const{
-	Cure	*new_instance = new Cure;
+	Cure	*new_instance = new Cure();
 	return (new_instance);
 }
 

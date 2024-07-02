@@ -30,6 +30,8 @@ MateriaSource::MateriaSource(const MateriaSource &src){
 	for(int i = 0; i < 4; i++){
 		if (src._template[i])
 			this->_template[i] = src._template[i]->clone();
+        else
+            this->_template[i] = NULL;
 	}
     std::cout << "Copy Constructor [MateriaSource]\n";
 }

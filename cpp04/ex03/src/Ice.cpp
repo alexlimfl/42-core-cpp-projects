@@ -13,11 +13,11 @@
 #include "../include/Ice.hpp"
 
 Ice::Ice() : AMateria("ice"){
-    std::cout << "Constructor [" << this->type << "]\n";
+    std::cout << "Constructor [Ice, " << this->type << "]\n";
 }
 
 Ice::~Ice(){
-    std::cout << "Destructor [" << this->type << "]\n";
+    std::cout << "Destructor [Ice, " << this->type << "]\n";
 }
 
 Ice::Ice(const Ice &src) : AMateria("ice"){
@@ -37,7 +37,7 @@ std::string const & Ice::getType() const{
 }
 
 Ice *Ice::clone() const{
-	Ice	*new_instance = new Ice;
+	Ice	*new_instance = new Ice();
 	return (new_instance);
 }
 
