@@ -28,7 +28,9 @@ class Character : public ICharacter{
         void equip(AMateria* m);
         void unequip(int idx);
         void use(int idx, ICharacter& target);
-        AMateria	*getMateriaFromInventory(int idx);
+
+        // used to avoid leaks when using unequip()
+        AMateria	*ReturnMateria(int idx);
 };
 
 #endif

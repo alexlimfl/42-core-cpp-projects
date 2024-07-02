@@ -18,114 +18,126 @@
 #include "../include/Ice.hpp"
 #include "../include/Cure.hpp"
 
-void ft_tests()
-{
-	// Constructors
-	std::cout << std::endl;
-	std::cout << "CONSTRUCTORS:" << std::endl;
-	std::cout << "-----------------------" << std::endl;
-	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
-	ICharacter* me = new Character("me");
-	std::cout << std::endl;
+void Test(){
+   std::cout << "\n\n\n--- Test: MateriaSource ---\n";
+   MateriaSource* src = new MateriaSource();
+   src->learnMateria(new Ice());
+   src->learnMateria(new Cure());
+   src->learnMateria(new Ice());
+   src->learnMateria(new Cure());
 
-	// Create Materia
-	std::cout << "CREATE MATERIA:" << std::endl;
-	std::cout << "-----------------------" << std::endl;
-	AMateria	*tmp;
-	
-	AMateria	*tmp1;
-	AMateria	*tmp2;
-	AMateria	*tmp3;
-	// AMateria	*tmp4;
+   std::cout << "\n*** Test 1 ***\n";
+   src->learnMateria(new Ice());
+   src->learnMateria(new Cure());
+   std::cout << "\n";
 
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp1 = src->createMateria("cure");
-	me->equip(tmp1);
-	tmp = src->createMateria("fire"); // null
-	me->equip(tmp);
-	std::cout << std::endl;
+   Character* alex = new Character("Alex");
 
-	// Use on a new character
-	std::cout << "USE ON A NEW CHARACTER:" << std::endl;
-	std::cout << "-----------------------" << std::endl;
-	ICharacter* bob = new Character("bob");
-	me->use(0, *bob);
-	me->use(1, *bob);
-	std::cout << std::endl;
-	me->use(2, *bob); // Use an empty / non existing slot in inventory
-	me->use(-4, *bob);
-	me->use(18, *bob);
-	std::cout << std::endl;
+   AMateria* tmp;
+   tmp = src->createMateria("ice");
+   alex->equip(tmp);
+   tmp = src->createMateria("cure");
+   alex->equip(tmp);
 
-	// Deep copy character
-	std::cout << "DEEP COPY CHARACTER:" << std::endl;
-	std::cout << "-----------------------" << std::endl;
-	Character	*charles = new Character("Charles");
-	tmp2 = src->createMateria("cure");
-	charles->equip(tmp2);
-	tmp3 = src->createMateria("ice");
-	charles->equip(tmp3);
-	tmp = src->createMateria("earth");
-	charles->equip(tmp);
-	Character	*charles_copy = new Character(*charles);
-	std::cout << std::endl;
+   std::cout << "\n*** Test 2 ***\n";
+   tmp = src->createMateria("fire");
+   alex->equip(tmp);
+   std::cout << "\n";
 
-	// Deep copy vs its source character
-	std::cout << "DEEP COPY VS SOURCE:" << std::endl;
-	std::cout << "-----------------------" << std::endl;
-	charles->unequip(0); // this shows that they have different materia pointers equipped
-	// tmp4 = charles_copy->getMateriaFromInventory(1);
-	charles_copy->unequip(1); //this will produce a leak if we don't store the address somewhere else before
-	// delete tmp4;
-	tmp = src->createMateria("cure");
-	charles_copy->equip(tmp);
-	tmp = src->createMateria("ice");
-	charles_copy->equip(tmp);
-	std::cout << std::endl;
+   Character* john = new Character("John");
+   MateriaSource *src_copy = new MateriaSource(*src);
 
-	charles->use(0, *bob);
-	charles->use(1, *bob);
-	charles->use(2, *bob);
-	charles->use(3, *bob);
-	std::cout << std::endl;
-	charles_copy->use(0, *bob);
-	charles_copy->use(1, *bob);
-	charles_copy->use(2, *bob);
-	charles_copy->use(3, *bob);
-	std::cout << std::endl;
+   std::cout << "\n*** Test 3 ***\n";
+   src_copy->learnMateria(new Ice());
+   src_copy->learnMateria(new Cure());
+   AMateria* tmp1;
+   tmp1 = src->createMateria("ice");
+   john->equip(tmp1);
+   tmp1 = src->createMateria("cure");
+   john->equip(tmp1);
+   std::cout << "\n";
 
-	// Unequip tests:
-	std::cout << "UNEQUIP:" << std::endl;
-	std::cout << "-----------------------" << std::endl;
-	me->unequip(-1); // unequip an empty / non existing slot in inventory
-	me->unequip(18);
-	me->unequip(3);
-	std::cout << std::endl;
-	me->use(1, *charles);
-	me->unequip(1); // Unequip a valid slot in inventory (cure unequipped)
-	me->use(1, *charles); // try to use it
-	std::cout << std::endl;
+   Character* leon = new Character("Leon");
+   MateriaSource* src_cao = new MateriaSource();
+   *src_cao = *src_copy;
 
-	// Destructors
-	std::cout << "DESTRUCTORS:" << std::endl;
-	std::cout << "-----------------------" << std::endl;
-	delete bob;
-	delete me;
-	delete src;
-	delete charles;
-	delete charles_copy;
-	// delete tmp1;
-	// delete tmp2;
-	std::cout << std::endl;
-	//system("leaks ex03");
+   std::cout << "\n*** Test 4 ***\n";
+   src_cao->learnMateria(new Ice());
+   src_cao->learnMateria(new Cure());
+   AMateria* tmp2;
+   tmp2 = src->createMateria("ice");
+   leon->equip(tmp2);
+   tmp2 = src->createMateria("cure");
+   leon->equip(tmp2);
+   std::cout << "\n";
+
+   std::cout << "\n\n--- Test: Character ---\n";
+   Character* john_copy = new Character(*john);
+
+   std::cout << "\n*** Test 1 ***\n";
+   john->use(0, *alex);
+   john_copy->use(0, *alex);
+   std::cout << "\n";
+
+   Character* leon_copy = new Character("Leon_copy");
+   *leon_copy = *leon;
+
+   std::cout << "\n*** Test 2 ***\n";
+   leon->use(1, *alex);
+   leon_copy->use(1, *alex);
+   std::cout << "\n";
+
+   ICharacter* dummy = new Character("Dummy");
+   AMateria* tmp3;
+   tmp3 = src->createMateria("ice");
+   alex->equip(tmp3);
+   tmp3 = src->createMateria("cure");
+   alex->equip(tmp3);
+
+
+   std::cout << "\n*** Test 3 ***\n";
+   alex->use(0, *dummy);
+   alex->use(1, *dummy);
+   alex->use(2, *dummy);
+   alex->use(3, *dummy);
+   alex->use(4, *dummy);
+   alex->use(-1, *dummy);
+   std::cout << "\n";
+
+   std::cout << "\n*** Test 4 ***\n";
+   tmp3 = src->createMateria("ice");
+   alex->equip(tmp3);
+   delete tmp3; // handles leaks
+   std::cout << "\n";
+
+   AMateria* tmp4;
+   tmp4 = alex->ReturnMateria(2); // handle leaks
+
+   std::cout << "\n*** Test 5 ***\n";
+   alex->unequip(2);
+   alex->unequip(2);
+   alex->unequip(-1);
+   alex->unequip(4);
+   delete tmp4; // handles leaks
+   alex->use(2, *dummy);
+   std::cout << "\n";
+
+   std::cout << "Test: Destructors\n";
+   delete src;
+   delete src_copy;
+   delete src_cao;
+   delete alex;
+   delete john;
+   delete john_copy;
+   delete leon;
+   delete leon_copy;
+   delete dummy;
 }
 
 int main()
 {
    {
+      std::cout << "\nTest provided by module:\n";
       IMateriaSource* src = new MateriaSource();
       src->learnMateria(new Ice());
       src->learnMateria(new Cure());
@@ -148,7 +160,7 @@ int main()
    }
 
    {
-      ft_tests();
+      Test();
    }
 
    return 0;

@@ -59,6 +59,7 @@ void MateriaSource::learnMateria(AMateria *m){
         }
     }
     std::cout << "Can't learn more than 4 Materia(s)!\n";
+    delete m;
 }
 
 
