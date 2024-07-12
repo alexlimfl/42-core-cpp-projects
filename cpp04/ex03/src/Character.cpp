@@ -61,10 +61,15 @@ void    Character::equip(AMateria* m){
         std::cout << "Nothing to be equipped!\n";
         return;
     }
+    if (m->getOwner() != ""){
+        std::cout << "Unable to equip, the material has been equipped by "<< m->getOwner() << "!\n";
+        return;
+    }
     std::cout << "Equipping [" << m->getType() << "] ...\n";
     for (int i = 0; i < 4; i++){
         if (!this->_inventory[i]){
             this->_inventory[i] = m;
+            m->setOwner(this->_name);
             std::cout << "Equipped succesfully into Slot [" << i << "]!\n";
             return;
         }
@@ -81,6 +86,7 @@ void    Character::unequip(int idx){
     else{
         std::cout << this->_inventory[idx]->getType() << " has been unequipped from Slot [" << idx << "] sucessfully!\n";
         // delete this->_inventory[idx]; // not allowed
+        this->_inventory[idx]->setOwner("");
         this->_inventory[idx] = NULL;
     }
 }

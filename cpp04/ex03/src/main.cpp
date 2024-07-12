@@ -17,6 +17,7 @@
 #include "../include/MateriaSource.hpp"
 #include "../include/Ice.hpp"
 #include "../include/Cure.hpp"
+#include <cstdlib>
 
 void Test(){
    std::cout << "\n\n\n--- Test: MateriaSource ---\n";
@@ -94,8 +95,12 @@ void Test(){
    tmp3 = src->createMateria("cure");
    alex->equip(tmp3);
 
-
    std::cout << "\n*** Test 3 ***\n";
+   leon->equip(tmp3);
+   std::cout << "\n";
+
+
+   std::cout << "\n*** Test 4 ***\n";
    alex->use(0, *dummy);
    alex->use(1, *dummy);
    alex->use(2, *dummy);
@@ -104,7 +109,7 @@ void Test(){
    alex->use(-1, *dummy);
    std::cout << "\n";
 
-   std::cout << "\n*** Test 4 ***\n";
+   std::cout << "\n*** Test 5 ***\n";
    tmp3 = src->createMateria("ice");
    alex->equip(tmp3);
    delete tmp3; // handles leaks
@@ -113,13 +118,19 @@ void Test(){
    AMateria* tmp4;
    tmp4 = alex->ReturnMateria(2); // handle leaks
 
-   std::cout << "\n*** Test 5 ***\n";
+   std::cout << "\n*** Test 6 ***\n";
    alex->unequip(2);
    alex->unequip(2);
    alex->unequip(-1);
    alex->unequip(4);
-   delete tmp4; // handles leaks
    alex->use(2, *dummy);
+   std::cout << "\n";
+
+   std::cout << "\n*** Test 7 ***\n";
+   leon->equip(tmp4);
+   leon->use(2, *dummy);
+   leon->unequip(2);
+   delete tmp4; // handles leaks
    std::cout << "\n";
 
    std::cout << "Test: Destructors\n";
@@ -163,6 +174,7 @@ int main()
       Test();
    }
 
+   // system("leaks InterfaceRecap");
    return 0;
 }
  

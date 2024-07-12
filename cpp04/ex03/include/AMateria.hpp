@@ -21,6 +21,7 @@ class ICharacter;
 class AMateria{
     protected:
         std::string type;
+        std::string owner;
     public:
         AMateria(std::string const & type);
         AMateria(const AMateria &src);
@@ -29,6 +30,8 @@ class AMateria{
         std::string const & getType() const; //Returns the materia type
         virtual AMateria* clone() const = 0;
         virtual void use(ICharacter& target);
+        virtual std::string getOwner();
+        virtual void setOwner(std::string newOwner);
  };
 
  #endif

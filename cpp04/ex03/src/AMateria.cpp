@@ -14,6 +14,7 @@
 
 AMateria::AMateria(std::string const & type){
     this->type = type;
+    this->owner = "";
     std::cout << "Contructor [AMaterial, " << this->type << "]\n";
 }
 
@@ -41,3 +42,10 @@ void AMateria::use(ICharacter& target){
     std::cout << "AMaterial used on " << target.getName() << "\n";
 }
 
+std::string AMateria::getOwner(){
+    return (this->owner);
+}
+
+void AMateria::setOwner(std::string newOwner){
+    this->owner = newOwner;
+}

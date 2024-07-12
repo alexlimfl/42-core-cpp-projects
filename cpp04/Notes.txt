@@ -1,5 +1,3 @@
-
-
 Polymorphism
     Compile-time polymorphism:
         Function overloading and operator overloading.
@@ -22,4 +20,3 @@ const
     handle object that is declared as constant object.
 
 try & catch (Handles dynamic mememory allocation failure)
-    
