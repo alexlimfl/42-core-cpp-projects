@@ -22,11 +22,11 @@ class Bureaucrat{
         size_t              _grade;
     public:
         Bureaucrat(std::string name, size_t grade);
-
-
+        Bureaucrat(const Bureaucrat &src);
+        Bureaucrat &operator=(const Bureaucrat &src);
         ~Bureaucrat();
-        std::string     getName();
-        size_t          getGrade();
+        std::string const     getName() const;
+        size_t          getGrade() const;
         void            setGrade(size_t grade);
         void            incrementGrade();
         void            decrementGrade();
@@ -40,5 +40,7 @@ class Bureaucrat{
                 const char *what() const throw();
         };
 };
+
+std::ostream    &operator<<(std::ostream &o, Bureaucrat const &obj);
 
 #endif

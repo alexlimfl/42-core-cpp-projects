@@ -15,7 +15,11 @@
 
 int main(){
 
-    // Bureaucrat john("John", 100);
+    {
+        Bureaucrat john("John", 1);
+        john.incrementGrade();
+    }
+
     std::cout << "help!\n";
     return 0;
 }
