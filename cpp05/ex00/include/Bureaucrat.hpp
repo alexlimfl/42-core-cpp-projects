@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifdef __BUREAUCRAT_H__
+#ifndef __BUREAUCRAT_H__
     #define __BUREAUCRAT_H__
 
 #include <iostream>
+#include <exception>
 
 class Bureaucrat{
     private:
@@ -23,11 +24,11 @@ class Bureaucrat{
         Bureaucrat(std::string name, size_t grade);
 
 
-        ~Bureaucrat;
+        ~Bureaucrat();
         std::string     getName();
         void            setName(std::string name);
         size_t          getGrade();
-        void            setGrade();
+        void            setGrade(size_t grade);
         void            incrementGrade();
         void            decrementGrade();
 
