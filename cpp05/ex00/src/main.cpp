@@ -10,4 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/Bureaucrat.hpp"
+#include <iostream>
 
+int main(){
+
+    // Bureaucrat john("John", 100);
+    std::cout << "help!\n";
+    return 0;
+}

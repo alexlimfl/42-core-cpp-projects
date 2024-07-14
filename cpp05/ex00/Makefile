@@ -15,8 +15,7 @@ NAME:= Bureaucrat
 COMPILE:= c++
 CPPFLAGS:= -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
 
-SRC_FILES:= main.cpp AMateria.cpp Character.cpp Cure.cpp\
-			Ice.cpp MateriaSource.cpp
+SRC_FILES:= main.cpp Bureaucrat.cpp
 DIR_SRC:= src
 SRCS := $(addprefix $(DIR_SRC)/, $(SRC_FILES))
 

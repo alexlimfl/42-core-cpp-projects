@@ -13,8 +13,32 @@
 #ifdef __BUREAUCRAT_H__
     #define __BUREAUCRAT_H__
 
+#include <iostream>
+
 class Bureaucrat{
-    pri
-}
+    private:
+        std::string const   _name;
+        size_t              _grade;
+    public:
+        Bureaucrat(std::string name, size_t grade);
+
+
+        ~Bureaucrat;
+        std::string     getName();
+        void            setName(std::string name);
+        size_t          getGrade();
+        void            setGrade();
+        void            incrementGrade();
+        void            decrementGrade();
+
+        class GradeTooHighException : public std::exception{
+            public:
+                const char *what const noexcept;
+        };
+        class GradeTooLowException : public std::exception{
+            public:
+                const char *what const noexcept;
+        };
+};
 
 #endif

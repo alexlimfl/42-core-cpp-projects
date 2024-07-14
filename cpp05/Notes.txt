@@ -1,0 +1,2 @@
+Exception class:
+    the base class from which exceptions inheri
