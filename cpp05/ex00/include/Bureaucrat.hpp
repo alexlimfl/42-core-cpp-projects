@@ -26,7 +26,6 @@ class Bureaucrat{
 
         ~Bureaucrat();
         std::string     getName();
-        void            setName(std::string name);
         size_t          getGrade();
         void            setGrade(size_t grade);
         void            incrementGrade();
@@ -34,11 +33,11 @@ class Bureaucrat{
 
         class GradeTooHighException : public std::exception{
             public:
-                const char *what() const noexcept;
+                const char *what() const throw();
         };
         class GradeTooLowException : public std::exception{
             public:
-                const char *what() const noexcept;
+                const char *what() const throw();
         };
 };
 
