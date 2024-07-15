@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 #include "../include/Bureaucrat.hpp"
+#include "../include/Form.hpp"
 #include <iostream>
 
-int main(){
-
+void test_from_ex00(){
     {
         std::cout << "Test Grade too high:\n";
         Bureaucrat john("John", 1);
@@ -63,5 +63,14 @@ int main(){
             std::cerr << e.what() << "\n";
         }
     }
+}
+
+int main(){
+
+    // test_from_ex00();
+
+    
+
+    
     return 0;
 }

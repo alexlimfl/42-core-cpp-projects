@@ -34,7 +34,7 @@ Bureaucrat & Bureaucrat::operator=(const Bureaucrat &src){
     return *this;
 }
 
-const std::string Bureaucrat::getName() const {
+std::string const Bureaucrat::getName() const {
     return this->_name;
 }
 
