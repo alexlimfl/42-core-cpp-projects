@@ -15,25 +15,28 @@
 
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form {
     private:
         const std::string   _name;
         bool                _isSigned;
-        int  const          _GradeSign;
-        int  const          _GradeExe;
+        size_t  const          _GradeSign;
+        size_t  const          _GradeExe;
     public:
         Form(std::string name, int GradeSign, int GradeExe);
         ~Form();
         Form(const Form &src);
         Form &operator=(const Form &src);
         const std::string   getName() const;
-        bool                getisSign() const;
-        int                 getGradeSign() const;
-        int                 getGradeExe() const;
-        void                beSigned() const;
-}
+        bool                getSign() const;
+        void                setSign();
+        size_t              getGradeSign() const;
+        size_t              getGradeExe() const;
+        void                beSigned(Bureaucrat &bureaucrat);
+};
 
-std::ostream    &operator<<(std::ostream &o, Bureaucrat &obj);
+std::ostream    &operator<<(std::ostream &o, Form &obj);
 
 
 #endif

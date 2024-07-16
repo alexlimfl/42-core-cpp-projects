@@ -15,6 +15,7 @@
 #include <iostream>
 
 void test_from_ex00(){
+    std::cout << "\nRunning Test for ex_00!\n";
     {
         std::cout << "Test Grade too high:\n";
         Bureaucrat john("John", 1);
@@ -63,11 +64,50 @@ void test_from_ex00(){
             std::cerr << e.what() << "\n";
         }
     }
+    std::cout << "\n";
+}
+
+void    test_from_ex01(){
+    std::cout << "\nRunning Test for ex_01!\n";
+    {
+        std::cout << "Test Constructor\n";
+        try{
+            Form attendence("Attendence", 69, -1);
+        } catch (Bureaucrat::GradeTooLowException &e){
+            std::cerr << e.what() << "\n";
+        } catch (Bureaucrat::GradeTooHighException &e){
+            std::cerr << e.what() << "\n";
+        }
+        try{
+            Form donation("Donation", 151, 69);
+        } catch (Bureaucrat::GradeTooLowException &e){
+            std::cerr << e.what() << "\n";
+        } catch (Bureaucrat::GradeTooHighException &e){
+            std::cerr << e.what() << "\n";
+        }
+    }
+
+    {
+        std::cout << "\nTest Copy Constructor\n";
+        Form test("Test", 75, 75);
+        Form test_copy(test);
+
+        std::cout << "\nTest Copy Assignment Operator\n";
+        Bureaucrat candidate("Candidate", 49);
+        test.beSigned(candidate);
+        Form pre_test("Pre_Test", 50, 50);
+        pre_test = test;
+    }
+    std::cout << "\n";
 }
 
 int main(){
 
-    // test_from_ex00();
+    test_from_ex00();
+
+    test_from_ex01();
+
+
 
     
 
