@@ -14,8 +14,8 @@
 #include "../include/Form.hpp"
 #include <iostream>
 
-void test_from_ex00(){
-    std::cout << "\nRunning Test for ex_00!\n";
+void test_for_ex00(){
+    std::cout << "\n >>> Running Test for ex_00! <<<\n";
     {
         std::cout << "Test Grade too high:\n";
         Bureaucrat john("John", 1);
@@ -67,19 +67,19 @@ void test_from_ex00(){
     std::cout << "\n";
 }
 
-void    test_from_ex01(){
-    std::cout << "\nRunning Test for ex_01!\n";
+void    test_for_ex01(){
+    std::cout << "\n>>> Running Test for ex_01! <<<\n";
     {
         std::cout << "Test Constructor\n";
         try{
-            Form attendence("Attendence", 69, -1);
+            Form attendence("Attendence", 68, -1);
         } catch (Bureaucrat::GradeTooLowException &e){
             std::cerr << e.what() << "\n";
         } catch (Bureaucrat::GradeTooHighException &e){
             std::cerr << e.what() << "\n";
         }
         try{
-            Form donation("Donation", 151, 69);
+            Form donation("Donation", 419, 68);
         } catch (Bureaucrat::GradeTooLowException &e){
             std::cerr << e.what() << "\n";
         } catch (Bureaucrat::GradeTooHighException &e){
@@ -98,19 +98,43 @@ void    test_from_ex01(){
         Form pre_test("Pre_Test", 50, 50);
         pre_test = test;
     }
+
+    {
+        std::cout << "\nTest Form beSigned function\n";
+        Bureaucrat adam("Adam", 25);
+        Bureaucrat eve("Eve", 26);
+        Form       rank25("Rank25", 25, 25);
+        try{
+            rank25.beSigned(eve);
+        } catch (Bureaucrat::GradeTooLowException &e){
+            std::cerr << e.what() << "\n";
+        }
+        rank25.beSigned(adam);
+        rank25.beSigned(eve);
+    }
+    std::cout << "\n";
+
+    {
+        std::cout << "\nTest Bureaucrat signForm function\n";
+        Bureaucrat adam("Adam", 25);
+        Bureaucrat eve("Eve", 26);
+        Form       rank25("Rank25", 25, 25);
+        try{
+            eve.signForm(rank25);
+        } catch (Bureaucrat::GradeTooLowException &e){
+            std::cerr << e.what() << "\n";
+        }
+        adam.signForm(rank25);
+        eve.signForm(rank25);
+    }
     std::cout << "\n";
 }
 
+
 int main(){
 
-    test_from_ex00();
+    test_for_ex00();
+    test_for_ex01();
 
-    test_from_ex01();
-
-
-
-    
-
-    
     return 0;
 }

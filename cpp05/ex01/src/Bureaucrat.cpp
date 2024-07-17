@@ -68,25 +68,25 @@ void Bureaucrat::decrementGrade(){
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw(){
-    return "Grade too high!";
+    return "--- Grade too high! ---";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw(){
-    return "Grade too low!";
+    return "--- Grade too low! ---";
 }
 
 void        Bureaucrat::signForm(Form &form){
-    std::cout << "Bureaucrat " << this->getName() << "is reviewing form " << form.getName() << "..\n";
-    if (this->getGrade() <= form.getGradeSign()){
-        if (form.getSign())
-            std::cout << "The form is already signed by other!\n";
-        else{
+    std::cout << "Bureaucrat " << this->getName() << " is reviewing form " << form.getName() << "..\n";
+    if (form.getSign())
+        std::cout << "The form is already signed by other!\n";
+    else{
+        if (form.getSignGrade() >= this->getGrade()){
             form.setSign();
             std::cout << "Bureaucrat " << this->getName() << " has signed form " << form.getName() << "!\n";
         }
-    }
-    else{
-        throw (Bureaucrat::GradeTooLowException());
+        else{
+            throw (Bureaucrat::GradeTooLowException());
+        }
     }
 }
 

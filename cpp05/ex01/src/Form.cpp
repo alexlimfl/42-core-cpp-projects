@@ -12,14 +12,14 @@
 
 #include "../include/Form.hpp"
 
-Form::Form(std::string name, int GradeSign, int GradeExe):
-    _name(name), _GradeSign(GradeSign), _GradeExe(GradeExe) {
+Form::Form(std::string name, int SignGrade, int ExeGrade):
+    _name(name), _SignGrade(SignGrade), _ExeGrade(ExeGrade) {
     this->_isSigned = false;
     std::cout << "Constructor [Form, " << this->_name << "]\n";
     std::cout << *this;
-    if (GradeSign < 1 || GradeExe < 1)
+    if (SignGrade < 1 || ExeGrade < 1)
         throw Bureaucrat::GradeTooHighException();
-    if (GradeSign > 150 || GradeExe > 150)
+    if (SignGrade > 150 || ExeGrade > 150)
         throw Bureaucrat::GradeTooLowException();
 }
 
@@ -28,20 +28,22 @@ Form::~Form(){
 }
 
 Form::Form(const Form &src):
-    _name(src.getName() + "_copy"), _GradeSign(src.getGradeSign()), _GradeExe(src.getGradeExe()) {
+    _name(src.getName() + "_copy"), _SignGrade(src.getSignGrade()), _ExeGrade(src.getExeGrade()) {
     this->_isSigned = src.getSign();
     std::cout << "Copy Constructor [Form, " << this->_name << ", copied from "<< src.getName() << "]\n";
     std::cout << *this;
 }
 
-//fix this thing
 Form & Form::operator=(const Form &src){
-    if (this->_isSigned != src.getSign())
+    if (this->_isSigned != src.getSign()){
+        std::cout << this->getSign() << ", " << src.getSign() << "\n";
         this->_isSigned = src.getSign();
+        std::cout << this->getSign() << ", " << src.getSign() << "\n";
+    }
     std::cout << "Copy Assignment Operator [Form, " << this->_name << ", copied from "<< src.getName() << "]\n";
     std::cout << *this;
-    // std::cout << "Grade required to sign: " << this->_GradeSign << "\n";
-    // std::cout << "Grade required to execute: " << this->_GradeExe << "\n";
+    // std::cout << "Grade required to sign: " << this->_SignGrade << "\n";
+    // std::cout << "Grade required to execute: " << this->_ExeGrade << "\n";
     return *this;
 }
 
@@ -57,35 +59,35 @@ void    Form::setSign(){
     this->_isSigned = true;
 }
 
-size_t  Form::getGradeSign() const{
-    return this->_GradeSign;
+size_t  Form::getSignGrade() const{
+    return this->_SignGrade;
 }
 
-size_t  Form::getGradeExe() const{
-    return this->_GradeExe;
+size_t  Form::getExeGrade() const{
+    return this->_ExeGrade;
 }
 
 void    Form::beSigned(Bureaucrat &bureaucrat) {
     std::cout << "Form " << this->getName() << " is being reviewed by " << bureaucrat.getName() << "..\n";
-    if (this->_GradeSign >= bureaucrat.getGrade()){
-        if (this->_isSigned)
-            std::cout << "The form is already signed by other!\n";
-        else{
+    if (this->_isSigned)
+        std::cout << "The form is already signed by other!\n";
+    else{
+        if (this->_SignGrade >= bureaucrat.getGrade()){
             this->_isSigned = true;
             std::cout << "The form has been signed by " << bureaucrat.getName() << "!\n";
         }
-    }
-    else{
-        throw (Bureaucrat::GradeTooLowException());
+        else{
+            throw (Bureaucrat::GradeTooLowException());
+        }
     }
 }
 
 std::ostream    &operator<<(std::ostream &o, Form &obj){
     std::string status = "Not signed";
     if (obj.getSign())
-        std::string status = "Signed";
+        status = "Signed";
     o << "Form: " << obj.getName() << ", Status: " << status << ".\n"
-        << "Grade required to sign: " << obj.getGradeSign() << ".\n"
-        << "Grade required to execute: " << obj.getGradeExe() << ".\n";
+        << "Grade required to sign: " << obj.getSignGrade() << ".\n"
+        << "Grade required to execute: " << obj.getExeGrade() << ".\n";
     return o;
 }

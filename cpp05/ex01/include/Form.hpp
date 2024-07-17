@@ -21,18 +21,18 @@ class Form {
     private:
         const std::string   _name;
         bool                _isSigned;
-        size_t  const          _GradeSign;
-        size_t  const          _GradeExe;
+        size_t  const          _SignGrade;
+        size_t  const          _ExeGrade;
     public:
-        Form(std::string name, int GradeSign, int GradeExe);
+        Form(std::string name, int SignGrade, int ExeGrade);
         ~Form();
         Form(const Form &src);
         Form &operator=(const Form &src);
         const std::string   getName() const;
         bool                getSign() const;
         void                setSign();
-        size_t              getGradeSign() const;
-        size_t              getGradeExe() const;
+        size_t              getSignGrade() const;
+        size_t              getExeGrade() const;
         void                beSigned(Bureaucrat &bureaucrat);
 };
 
