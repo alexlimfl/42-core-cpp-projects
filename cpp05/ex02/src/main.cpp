@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../include/Bureaucrat.hpp"
-#include "../include/Form.hpp"
+#include "../include/AForm.hpp"
 #include <iostream>
 
 void test_for_ex00(){
@@ -72,41 +72,41 @@ void    test_for_ex01(){
     {
         std::cout << "Test Constructor\n";
         try{
-            Form attendence("Attendence", 68, -1);
-        } catch (Form::GradeTooLowException &e){
+            AForm attendence("Attendence", 68, -1);
+        } catch (AForm::GradeTooLowException &e){
             std::cerr << e.what() << "\n";
-        } catch (Form::GradeTooHighException &e){
+        } catch (AForm::GradeTooHighException &e){
             std::cerr << e.what() << "\n";
         }
         try{
-            Form donation("Donation", 419, 68);
-        } catch (Form::GradeTooLowException &e){
+            AForm donation("Donation", 419, 68);
+        } catch (AForm::GradeTooLowException &e){
             std::cerr << e.what() << "\n";
-        } catch (Form::GradeTooHighException &e){
+        } catch (AForm::GradeTooHighException &e){
             std::cerr << e.what() << "\n";
         }
     }
 
     {
         std::cout << "\nTest Copy Constructor\n";
-        Form test("Test", 75, 75);
-        Form test_copy(test);
+        AForm test("Test", 75, 75);
+        AForm test_copy(test);
 
         std::cout << "\nTest Copy Assignment Operator\n";
         Bureaucrat candidate("Candidate", 49);
         test.beSigned(candidate);
-        Form pre_test("Pre_Test", 50, 50);
+        AForm pre_test("Pre_Test", 50, 50);
         pre_test = test;
     }
 
     {
-        std::cout << "\nTest Form beSigned function\n";
+        std::cout << "\nTest AForm beSigned function\n";
         Bureaucrat adam("Adam", 25);
         Bureaucrat eve("Eve", 26);
-        Form       rank25("Rank25", 25, 25);
+        AForm       rank25("Rank25", 25, 25);
         try{
             rank25.beSigned(eve);
-        } catch (Form::GradeTooLowException &e){
+        } catch (AForm::GradeTooLowException &e){
             std::cerr << e.what() << "\n";
         }
         rank25.beSigned(adam);
@@ -117,10 +117,10 @@ void    test_for_ex01(){
         std::cout << "\nTest Bureaucrat signForm function\n";
         Bureaucrat adam("Adam", 25);
         Bureaucrat eve("Eve", 26);
-        Form       rank25("Rank25", 25, 25);
+        AForm       rank25("Rank25", 25, 25);
         try{
             eve.signForm(rank25);
-        } catch (Form::GradeTooLowException &e){
+        } catch (AForm::GradeTooLowException &e){
             std::cerr << e.what() << "\n";
         }
         adam.signForm(rank25);

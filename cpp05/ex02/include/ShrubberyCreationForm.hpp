@@ -14,10 +14,16 @@
     #define __SHRUBBERYCREATIONFORM_H__
 
 #include "AForm.hpp"
+#include <fstream>
 
 class ShrubberyCreationForm : public AForm{
+    private:
+        std::string _target;
     public:
         ShrubberyCreationForm();
+        ~ShrubberyCreationForm();
+        std::string getTarget();
+        void execute(Bureaucrat const & executor) const;
 }
 
 #endif

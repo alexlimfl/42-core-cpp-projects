@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -24,10 +24,10 @@ class AForm {
         size_t  const          _SignGrade;
         size_t  const          _ExeGrade;
     public:
-        Form(std::string name, int SignGrade, int ExeGrade);
-        ~Form();
-        Form(const Form &src);
-        Form &operator=(const Form &src);
+        AForm(std::string name, int SignGrade, int ExeGrade);
+        ~AForm();
+        AForm(const AForm &src);
+        AForm &operator=(const AForm &src);
         const std::string   getName() const;
         bool                getSign() const;
         void                setSign();
@@ -43,8 +43,10 @@ class AForm {
             public:
                 const char *what() const throw();
         };
+
+        virtual void execute(Bureaucrat const & executor) const = 0;
 };
 
-std::ostream    &operator<<(std::ostream &o, Form &obj);
+std::ostream    &operator<<(std::ostream &o, AForm &obj);
 
 #endif
