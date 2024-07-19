@@ -39,8 +39,6 @@ AForm & AForm::operator=(const AForm &src){
         this->_isSigned = src.getSign();
     std::cout << "Copy Assignment Operator [AForm, " << this->_name << ", copied from "<< src.getName() << "]\n";
     std::cout << *this;
-    // std::cout << "Grade required to sign: " << this->_SignGrade << "\n";
-    // std::cout << "Grade required to execute: " << this->_ExeGrade << "\n";
     return *this;
 }
 
@@ -52,8 +50,8 @@ bool    AForm::getSign() const{
     return this->_isSigned;
 }
 
-void    AForm::setSign(){
-    this->_isSigned = true;
+void    AForm::setSign(bool i){
+        this->_isSigned = i;
 }
 
 size_t  AForm::getSignGrade() const{
@@ -85,6 +83,14 @@ const char* AForm::GradeTooHighException::what() const throw(){
 
 const char* AForm::GradeTooLowException::what() const throw(){
     return "--- Grade too low! ---";
+}
+
+const char* AForm::OpenFileErrorException::what() const throw(){
+    return "-- Unable to create/open file! --";
+}
+
+const char* AForm::FormNotSignedException::what() const throw(){
+    return "--- Form not signed! ---";
 }
 
 std::ostream    &operator<<(std::ostream &o, AForm &obj){

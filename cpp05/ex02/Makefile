@@ -11,11 +11,12 @@
 # **************************************************************************** #
 
 
-NAME:= SRP
+NAME:= Forms
 COMPILE:= c++
 CPPFLAGS:= -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
 
-SRC_FILES:= main.cpp Bureaucrat.cpp AForm.cpp
+SRC_FILES:= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp\
+				RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 DIR_SRC:= src
 SRCS := $(addprefix $(DIR_SRC)/, $(SRC_FILES))
 

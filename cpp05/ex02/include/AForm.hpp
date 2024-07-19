@@ -25,15 +25,16 @@ class AForm {
         size_t  const          _ExeGrade;
     public:
         AForm(std::string name, int SignGrade, int ExeGrade);
-        ~AForm();
+        virtual ~AForm();
         AForm(const AForm &src);
         AForm &operator=(const AForm &src);
         const std::string   getName() const;
         bool                getSign() const;
-        void                setSign();
+        void                setSign(bool i);
         size_t              getSignGrade() const;
         size_t              getExeGrade() const;
         void                beSigned(Bureaucrat &bureaucrat);
+        virtual void        execute(Bureaucrat const & executor) const = 0;
         
         class GradeTooHighException : public std::exception{
             public:
@@ -44,7 +45,16 @@ class AForm {
                 const char *what() const throw();
         };
 
-        virtual void execute(Bureaucrat const & executor) const = 0;
+        class OpenFileErrorException : public std::exception{
+            public:
+                const char *what() const throw();
+        };
+
+        class FormNotSignedException : public std::exception{
+            public:
+                const char *what() const throw();
+        };
+
 };
 
 std::ostream    &operator<<(std::ostream &o, AForm &obj);
