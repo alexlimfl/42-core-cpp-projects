@@ -5,13 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/15 16:46:26 by folim             #+#    #+#              #
-#    Updated: 2024/06/18 14:21:42 by folim            ###   ########.fr        #
+#    Created: 2024/07/29 11:24:09 by folim             #+#    #+#              #
+#    Updated: 2024/07/29 11:24:10 by folim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-NAME:= Bureaucrat
+NAME:= ScalarConverter
 COMPILE:= c++
 CPPFLAGS:= -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
 
@@ -44,3 +43,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
