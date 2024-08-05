@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME:= convert
+NAME:= ScalarConverter
 COMPILE:= c++
-CPPFLAGS:= -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
+CPPFLAGS:= -Wall -Wextra -Werror #-std=c++98 #-fsanitize=address -g3
 
 SRC_FILES:= main.cpp ScalarConverter.cpp
 DIR_SRC:= src

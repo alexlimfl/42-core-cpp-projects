@@ -10,11 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME:= convert
+NAME:= serialize
 COMPILE:= c++
 CPPFLAGS:= -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
 
-SRC_FILES:= main.cpp ScalarConverter.cpp
+SRC_FILES:= main.cpp Serializer.cpp
 DIR_SRC:= src
 SRCS := $(addprefix $(DIR_SRC)/, $(SRC_FILES))
 
