@@ -30,10 +30,15 @@ ScalarConverter::~ScalarConverter(){
 }
 
 void ScalarConverter::convert(std::string str){
-
-    if(str == "nan" || str == "-inf" || str ==  "+inf" || str == "inf"){
-        std::cout   <<  "char: impossible\nint: impossible\n"
-                    <<  "float: " << str << "\ndouble: " << str << "\n";
+    if(str == "nan" || str == "-inf" || str ==  "+inf" || str == "inf"
+        || str == "-inff" || str == "+inff" || str == "nanf" || str == "inff")
+    {
+        std::cout   <<  "char: impossible\nint: impossible\n";
+        (str == "nan" || str == "-inf" || str == "+inf" || str == "inf")
+            ? std::cout<<  "float: " << str + "f" : std::cout<<  "float: " << str;
+        (str == "nanf" || str == "-inff" || str == "+inff" || str == "inff" || str == "inff")
+            ? std::cout << "\ndouble: " << str.substr(0, str.length() - 1) : std::cout << "\ndouble: " << str;
+        std::cout << "\n";
         return;
     }
     else if (!checkValid(str)){

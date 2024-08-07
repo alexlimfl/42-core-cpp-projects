@@ -18,8 +18,10 @@
 int main(){
     
     Base *ptr = generate();
+    std::cout << "Object address: " << ptr << "\n";
     identify(ptr);
     identify(*ptr);
-
+    if (ptr)
+        delete ptr;
     return 0;
 }

@@ -46,18 +46,20 @@ Base * generate(void){
 void identify(Base* p){
     std::cout << "Identifying...\n";
     if (dynamic_cast<A*>(p))
-        std::cout << "  This is A\n";
+        std::cout << "  This is A (" << dynamic_cast<A*>(p) << ")\n";
     else if (dynamic_cast<B*>(p))
-        std::cout << "  This is B\n";
+        std::cout << "  This is B (" << dynamic_cast<B*>(p) << ")\n";
     else if (dynamic_cast<C*>(p))
-        std::cout << "  This is C\n";
+        std::cout << "  This is C (" << dynamic_cast<C*>(p) << ")\n";
+    else
+        std::cout << "Not found!\n";
 }
 
 void identify(Base& p) {
     std::cout << "Identifying... (without using pointer)\n";
     try {
         A& a = dynamic_cast<A&>(p);
-        std::cout << "  This is A" << std::endl;
+        std::cout << "  This is A (" << &a << ")\n";
         (void)a;
         return;
     } catch (std::exception& e){
@@ -66,7 +68,7 @@ void identify(Base& p) {
 
     try {
         B& b = dynamic_cast<B&>(p);
-        std::cout << "  This is B" << std::endl;
+        std::cout << "  This is B (" << &b << ")\n";
         (void)b;
         return;
     } catch (std::exception& e){
@@ -75,7 +77,7 @@ void identify(Base& p) {
 
     try {
         C& c = dynamic_cast<C&>(p);
-        std::cout << "  This is C" << std::endl;
+        std::cout << "  This is C (" << &c << ")\n";
         (void)c;
     } catch (std::exception& e){
         std::cout << "  " << e.what() << ", not C\n";
