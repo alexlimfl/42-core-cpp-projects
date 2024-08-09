@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME:= whatever
+NAME:= Array
 COMPILE:= c++
 CPPFLAGS:= -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
 
