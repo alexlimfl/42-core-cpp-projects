@@ -82,7 +82,6 @@ template <class T> class Array {
             }
             std::cout << "\n";
         }
-
 };
 
 #endif

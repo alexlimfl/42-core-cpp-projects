@@ -22,5 +22,5 @@ int main(){
     std::string arr2[] = {"Alex", "John", "Leon", "Joseph", "Hatsune"};
     iter(arr2, sizeof(arr)/sizeof(arr[0]), Fun);
 
-    iter(arr, arr1, arr2, sizeof(arr)/sizeof(arr[0]));
+    // iter(arr, arr1, arr2, sizeof(arr)/sizeof(arr[0]));
 }
