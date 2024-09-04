@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.tpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,10 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
+#include "../include/Span.hpp"
 
-template <typename T> void easyfind(T &ptr, int nb){
-    std::cout << "Finding " << nb << "...\n";
-    std::find(ptr.begin(), ptr.end(), nb) != ptr.end()
-        ? std::cout << "--Found--\n" : std::cout << "--Not Found--\n";
+int main()
+{
+    Span sp = Span(5);
+    sp.addNumber(6);
+    sp.addNumber(3);
+    sp.addNumber(17);
+    sp.addNumber(9);
+    sp.addNumber(11);
+    std::cout << sp.shortestSpan() << std::endl;
+    std::cout << sp.longestSpan() << std::endl;
+    return 0;
 }

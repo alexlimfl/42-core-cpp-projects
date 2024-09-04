@@ -69,6 +69,7 @@
         "ratio": "cpp",
         "stack": "cpp",
         "string_view": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "*.tpp": "cpp"
     }
 }

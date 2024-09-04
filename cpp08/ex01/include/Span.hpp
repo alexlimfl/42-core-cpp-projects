@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.tpp                                       :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
-
-template <typename T> void easyfind(T &ptr, int nb){
-    std::cout << "Finding " << nb << "...\n";
-    std::find(ptr.begin(), ptr.end(), nb) != ptr.end()
-        ? std::cout << "--Found--\n" : std::cout << "--Not Found--\n";
-}
+class Span {
+    private:
+        unsigned int N;
+    public:
+        void    addNumber();
+};
