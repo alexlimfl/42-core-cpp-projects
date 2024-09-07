@@ -10,9 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <random>
+
 class Span {
     private:
         unsigned int N;
+        std::vector<int> numbers;
     public:
-        void    addNumber();
+        Span(unsigned int nb);
+        Span(const Span &src);
+        Span &operator=(const Span &src);
+        ~Span();
+        void            addNumber(int nb);
+        void            addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+        int             shortestSpan();
+        int             longestSpan();
+        unsigned int    getN() const;
 };
