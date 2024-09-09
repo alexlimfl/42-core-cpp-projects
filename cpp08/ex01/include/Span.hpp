@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef __SPAN_H__
+    #define __SPAN_H__
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -30,3 +32,5 @@ class Span {
         int             longestSpan();
         unsigned int    getN() const;
 };
+
+#endif

@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
-
 template <typename T> void easyfind(T &ptr, int nb){
     std::cout << "Finding " << nb << "...\n";
     std::find(ptr.begin(), ptr.end(), nb) != ptr.end()

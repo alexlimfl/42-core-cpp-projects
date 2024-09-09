@@ -1,24 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   MutantStack.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/09 09:33:55 by folim             #+#    #+#             */
-/*   Updated: 2024/08/09 09:33:56 by folim            ###   ########.fr       */
+/*   Created: 2024/09/08 16:13:17 by folim             #+#    #+#             */
+/*   Updated: 2024/09/08 16:13:18 by folim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __EASYFIND_H__
-    #define __EASYFIND_H__
+#include "../include/MutantStack.hpp"
 
-#include <iostream>
-#include <vector>
-#include <list>
-#include <algorithm>
 
-template <typename T> void easyfind(T &ptr, int nb);
-
-#include "easyfind.tpp"
-#endif
