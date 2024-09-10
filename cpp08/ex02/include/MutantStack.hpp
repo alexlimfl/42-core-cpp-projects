@@ -23,6 +23,7 @@ template <class T, class Container = std::deque<T> >
 class MutantStack : public std::stack <T, Container> {
     public:
         MutantStack(){}
+
         MutantStack(const MutantStack &src) {
             *this = src;
         }
@@ -32,6 +33,17 @@ class MutantStack : public std::stack <T, Container> {
             return *this;
         }
         ~MutantStack() {}
+        
+        
+        typedef typename Container::iterator iterator;
+
+        iterator begin(){
+            return this->c.begin();
+        }
+
+        iterator end(){
+            return this->c.end();
+        }
 };
 
 #endif
