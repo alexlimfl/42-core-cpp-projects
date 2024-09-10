@@ -17,6 +17,7 @@
 #include <vector>
 #include <list>
 #include <algorithm>
+#include <deque>
 
 template <typename T> void easyfind(T &ptr, int nb);
 
