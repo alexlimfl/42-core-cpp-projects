@@ -10,11 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef __BITCOINEXCHANGE_H__
+    #define __BITCOINEXCHANGE_H__
+
 #include <iostream>
 #include <fstream>
 #include <map>
 #include <ctime>
-#include <string>
+#include <cstring>
 #include <stdlib.h>
 #include <sstream>
 #include <algorithm>
@@ -27,15 +30,16 @@ class BitcoinExchange
         std::map <std::string, std::string> _input_m;
         std::map <time_t, float> _db_m;
     public:
-        BitcoinExchange(std::string input, std::string db);
+        BitcoinExchange(const std::string input, const std::string db);
         ~BitcoinExchange();
         BitcoinExchange(const BitcoinExchange &src);
         BitcoinExchange &operator=(const BitcoinExchange &src);
-        void printMap(std::map<time_t, float>&map);
-        void extractDB(std::string db);
+        void printMap();
+        void extractDB(const std::string db);
         void convertInput();
-        bool noAlpha(std::string str);
-        bool parseDate(std::string date, time_t &arithmetic_time);
-        bool parseExchangeRate(std::string exchange_rate, float &ex_rate);
+        bool noAlpha(const std::string str);
+        bool parseDate(const std::string date, time_t &arithmetic_time);
+        bool parseExchangeRate(const std::string exchange_rate, float &ex_rate);
 
 };
+#endif

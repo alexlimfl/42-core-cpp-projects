@@ -12,7 +12,7 @@
 
 #include "../include/BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange(std::string input,std::string db)
+BitcoinExchange::BitcoinExchange(const std::string input,const std::string db)
 {
     this->_input = input;
     extractDB(db);
@@ -22,14 +22,10 @@ BitcoinExchange::BitcoinExchange(std::string input,std::string db)
 BitcoinExchange::~BitcoinExchange(){}
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &src){
-    std::cout << "Copy Constructor Called\n";
-    this->_input = src._input;
-    this->_db_m = src._db_m;
-    this->_input_m = src._input_m;
+    *this = src;
 }
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &src){
-    std::cout << "Copy Assignment Operator Called\n";
     if (this != &src){
         this->_input = src._input;
         this->_db_m = src._db_m;
@@ -38,7 +34,7 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &src){
     return *this;
 }
 
-void BitcoinExchange::extractDB(std::string db){
+void BitcoinExchange::extractDB(const std::string db){
     std::ifstream file(db.c_str());
     if (!file){
         std::cout << "Error: could not open file.\n";
@@ -70,9 +66,9 @@ void BitcoinExchange::extractDB(std::string db){
     file.close();
 }
 
-bool BitcoinExchange::parseDate(std::string date, time_t &arithmetic_time){
-    struct tm tmStruct = {0};
-
+bool BitcoinExchange::parseDate(const std::string date, time_t &arithmetic_time){
+    struct tm tmStruct;
+    memset(&tmStruct, 0, sizeof(struct tm));
     if ((date[date.length()-2] > 3 + '0' && date[date.length()-1] >= 0 + '0' )
         || date[date.length()-3] != '-'){
             std::cout << "bad input => " << date << "\n";
@@ -95,7 +91,7 @@ bool BitcoinExchange::parseDate(std::string date, time_t &arithmetic_time){
     }
 }
 
-bool BitcoinExchange::parseExchangeRate(std::string exchange_rate, float &ex_rate){
+bool BitcoinExchange::parseExchangeRate(const std::string exchange_rate, float &ex_rate){
     std::stringstream ss(exchange_rate);
     ss >> ex_rate;
     if (ex_rate < 0){
@@ -107,13 +103,13 @@ bool BitcoinExchange::parseExchangeRate(std::string exchange_rate, float &ex_rat
         return false;
     }
     if (ss.fail() || ss.bad() || ss.peek() != EOF){
-        std::cout << "Error: invalid exchange rate/unit.\n";
+        std::cout << "Error: invalid exchange rate/value.\n";
         return false;
     }
     return true;
 }
 
-bool BitcoinExchange::noAlpha(std::string str){
+bool BitcoinExchange::noAlpha(const std::string str){
     for (int i = 0; str[i]; i++) 
         if (std::isalpha(str[i])){
             std::cout << "Error: invalid format. Non-digit value found.\n";
@@ -173,7 +169,7 @@ void BitcoinExchange::convertInput(){
     file.close();
 }
 
-void BitcoinExchange::printMap(std::map<time_t, float>&map){
+void BitcoinExchange::printMap(){
     std::map<time_t, float>::iterator iter;
     for (iter = _db_m.begin(); iter != _db_m.end(); ++iter){
         std::cout << std::fixed << std::setprecision(2);

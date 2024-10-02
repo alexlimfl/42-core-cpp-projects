@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/27 21:18:49 by folim             #+#    #+#              #
-#    Updated: 2024/09/27 21:18:51 by folim            ###   ########.fr        #
+#    Created: 2024/10/02 17:20:18 by folim             #+#    #+#              #
+#    Updated: 2024/10/02 17:20:19 by folim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME:= btc
+NAME:= RPN
 COMPILE:= c++
 CPPFLAGS:= -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
 
-SRC_FILES:= main.cpp BitcoinExchange.cpp
+SRC_FILES:= main.cpp RPN.cpp
 DIR_SRC:= src
 SRCS := $(addprefix $(DIR_SRC)/, $(SRC_FILES))
 
@@ -43,4 +43,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-

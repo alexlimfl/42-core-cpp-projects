@@ -5,35 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: folim <folim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/27 21:19:41 by folim             #+#    #+#             */
-/*   Updated: 2024/09/27 21:19:42 by folim            ###   ########.fr       */
+/*   Created: 2024/10/02 15:47:22 by folim             #+#    #+#             */
+/*   Updated: 2024/10/02 15:47:23 by folim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/BitcoinExchange.hpp"
+#include "../include/RPN.hpp"
 
 int main(int ac, char **av)
 {
     if (ac != 2){
-        std::cout << "Error: only accepts one file.\n";
+        std::cout << "Error: Invalid input, only one argument required!\n";
         return 1;
     }
+    RPN one(av[1]);
 
-    BitcoinExchange one(av[1], "data.csv");
-    one.convertInput();
-    // one.printMap();
-
-    // /*Test Copy Constructor and Copy Assignment Operator:*/
-    // std::cout <<"\n\n\n";
-    // BitcoinExchange two = one;
-    // two.convertInput();
-
-
-    // std::cout <<"\n\n\n";
-    // BitcoinExchange three("doesntexit.txt", "data.csv");
-    // three.convertInput();
+    // std::cout << "Test Copy Constructor and Copy Assignment Operator:\n";
+    // RPN two(one);
+    // two.Run();
+    // RPN three("");
     // three = two;
-    // three.convertInput();
-
+    // three.Run();
     return 0;
 }
