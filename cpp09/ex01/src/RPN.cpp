@@ -14,7 +14,7 @@
 
 RPN::RPN(const std::string input) : _input(input)
 {
-    Run();  
+    Run();
 }
 
 RPN::RPN(const RPN &src)
